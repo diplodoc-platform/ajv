@@ -20,11 +20,13 @@
       "properties": {
         "title": {
           "$ref": "#/definitions/TextItems",
+          "translate": "md",
           "description": "SEO title override (takes precedence over the top-level title).",
           "markdownDescription": "**`string`** SEO title override (takes precedence over the top-level `title`)."
         },
         "description": {
           "$ref": "#/definitions/TextItems",
+          "translate": "md",
           "description": "SEO description override.",
           "markdownDescription": "**`string`** SEO description override."
         },
@@ -227,11 +229,13 @@
         "properties": {
           "title": {
             "$ref": "#/definitions/TextItems",
+            "translate": "md",
             "description": "Card title text.",
             "markdownDescription": "**`string`** Card title text. Supports conditional `TextItems`."
           },
           "description": {
             "$ref": "#/definitions/TextItems",
+            "translate": "md",
             "description": "Card description text shown below the title.",
             "markdownDescription": "**`string`** Card description shown below the title. Supports conditional `TextItems`."
           },
@@ -282,10 +286,12 @@
         },
         {
           "type": "array",
+          "translate": "md",
           "items": {
             "oneOf": [
               {
                 "type": "string",
+                "translate": "md",
                 "markdownDescription": "**`string`**"
               },
               {
@@ -318,6 +324,7 @@
               "markdownDescription": "**`string[]`**"
             }
           ],
+          "translate": "md",
           "description": "Text content to display when the condition is met.",
           "markdownDescription": "**`string | string[]`** Text content shown when `when` is truthy. **Required.**"
         },

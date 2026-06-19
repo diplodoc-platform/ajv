@@ -5,6 +5,7 @@ type: object
 properties:
   title:
     type: string
+    translate: md
     markdownDescription: '**`string`** Title of the documentation section. Shown in the browser tab and the navigation sidebar header.'
     description: Title of the documentation section. Shown in the browser tab and sidebar header.
   href:
@@ -178,10 +179,12 @@ definitions:
     properties:
       title:
         type: string
+        translate: md
         markdownDescription: '**`string`** Badge text (e.g. `New`, `Beta`, `Deprecated`). **Required.**'
         description: Label text displayed in the badge.
       description:
         type: string
+        translate: md
         markdownDescription: '**`string`** Tooltip text shown when hovering over the badge.'
         description: Tooltip text shown on hover over the badge.
       theme:
@@ -225,6 +228,7 @@ definitions:
     properties:
       name:
         type: string
+        translate: md
         markdownDescription: '**`string`** Display name in the navigation sidebar.'
         description: Display name of the item in the navigation sidebar.
       expanded:
@@ -298,6 +302,7 @@ definitions:
     properties:
       name:
         type: string
+        translate: md
         markdownDescription: '**`string`**'
       href:
         type: string
@@ -312,6 +317,7 @@ definitions:
     properties:
       name:
         type: string
+        translate: md
         markdownDescription: '**`string`**'
       include:
         $ref: '#/definitions/Include'
@@ -380,6 +386,7 @@ definitions:
         properties:
           tabName:
             type: string
+            translate: text
             markdownDescription: '**`string`**'
           host:
             type: string
@@ -481,6 +488,7 @@ definitions:
         markdownDescription: '**`string`** URL the logo links to when clicked.'
       urlTitle:
         type: string
+        translate: md
         markdownDescription: '**`string`** Accessible title for the logo link (tooltip / screen-reader text).'
       icon:
         type: string
@@ -557,6 +565,7 @@ definitions:
     properties:
       text:
         type: string
+        translate: md
         markdownDescription: '**`string`** Label text displayed for this navigation item.'
       url:
         type: string
@@ -588,6 +597,7 @@ definitions:
     properties:
       text:
         type: string
+        translate: md
         markdownDescription: '**`string`**'
       type:
         type: string
@@ -610,6 +620,7 @@ definitions:
         markdownDescription: '**`string`**'
       urlTitle:
         type: string
+        translate: md
         markdownDescription: '**`string`**'
       primary:
         type: boolean
@@ -639,6 +650,7 @@ definitions:
                 markdownDescription: "**`'left' | 'right'`**"
               alt:
                 type: string
+                translate: md
                 markdownDescription: '**`string`**'
             markdownDescription: '**`{data, position, alt}`**'
       analyticsEvents:
@@ -706,6 +718,7 @@ definitions:
     properties:
       text:
         type: string
+        translate: md
         description: Cookie consent popup text (HTML allowed).
         markdownDescription: '**`string`** Text displayed in the cookie consent popup. HTML tags are allowed (e.g. `<a>` links to privacy policy).'
       buttons:
@@ -758,6 +771,7 @@ definitions:
     properties:
       text:
         type: string
+        translate: md
         markdownDescription: '**`string`** Button label text.'
         description: Button label text.
       theme:

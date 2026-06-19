@@ -6,6 +6,7 @@
   "properties": {
     "title": {
       "type": "string",
+      "translate": "md",
       "markdownDescription": "**`string`** Title of the documentation section. Shown in the browser tab and the navigation sidebar header.",
       "description": "Title of the documentation section. Shown in the browser tab and sidebar header."
     },
@@ -210,11 +211,13 @@
       "properties": {
         "title": {
           "type": "string",
+          "translate": "md",
           "markdownDescription": "**`string`** Badge text (e.g. `New`, `Beta`, `Deprecated`). **Required.**",
           "description": "Label text displayed in the badge."
         },
         "description": {
           "type": "string",
+          "translate": "md",
           "markdownDescription": "**`string`** Tooltip text shown when hovering over the badge.",
           "description": "Tooltip text shown on hover over the badge."
         },
@@ -256,6 +259,7 @@
       "properties": {
         "name": {
           "type": "string",
+          "translate": "md",
           "markdownDescription": "**`string`** Display name in the navigation sidebar.",
           "description": "Display name of the item in the navigation sidebar."
         },
@@ -340,6 +344,7 @@
       "properties": {
         "name": {
           "type": "string",
+          "translate": "md",
           "markdownDescription": "**`string`**"
         },
         "href": {
@@ -357,6 +362,7 @@
       "properties": {
         "name": {
           "type": "string",
+          "translate": "md",
           "markdownDescription": "**`string`**"
         },
         "include": {
@@ -441,6 +447,7 @@
           "properties": {
             "tabName": {
               "type": "string",
+              "translate": "text",
               "markdownDescription": "**`string`**"
             },
             "host": {
@@ -554,6 +561,7 @@
         },
         "urlTitle": {
           "type": "string",
+          "translate": "md",
           "markdownDescription": "**`string`** Accessible title for the logo link (tooltip / screen-reader text)."
         },
         "icon": {
@@ -641,6 +649,7 @@
       "properties": {
         "text": {
           "type": "string",
+          "translate": "md",
           "markdownDescription": "**`string`** Label text displayed for this navigation item."
         },
         "url": {
@@ -670,6 +679,7 @@
       "properties": {
         "text": {
           "type": "string",
+          "translate": "md",
           "markdownDescription": "**`string`**"
         },
         "type": {
@@ -697,6 +707,7 @@
         },
         "urlTitle": {
           "type": "string",
+          "translate": "md",
           "markdownDescription": "**`string`**"
         },
         "primary": {
@@ -732,6 +743,7 @@
                 },
                 "alt": {
                   "type": "string",
+                  "translate": "md",
                   "markdownDescription": "**`string`**"
                 }
               },
@@ -813,6 +825,7 @@
       "properties": {
         "text": {
           "type": "string",
+          "translate": "md",
           "description": "Cookie consent popup text (HTML allowed).",
           "markdownDescription": "**`string`** Text displayed in the cookie consent popup. HTML tags are allowed (e.g. `<a>` links to privacy policy)."
         },
@@ -862,6 +875,7 @@
       "properties": {
         "text": {
           "type": "string",
+          "translate": "md",
           "markdownDescription": "**`string`** Button label text.",
           "description": "Button label text."
         },
