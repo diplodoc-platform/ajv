@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.5](https://github.com/diplodoc-platform/ajv/compare/v0.0.4...v0.0.5) (2026-06-19)
+
+
+### Bug Fixes
+
+* fixed schemas ([b73986c](https://github.com/diplodoc-platform/ajv/commit/b73986c28c1ce7debe615192af4648f3b12c7a22))
+* updated schema for https://github.com/diplodoc-platform/cli/pull/2003 ([ea33ce3](https://github.com/diplodoc-platform/ajv/commit/ea33ce36a579619c3abc1aa38b5538a38b1a0ef2))
+
 ## [0.0.4](https://github.com/diplodoc-platform/ajv/compare/v0.0.3...v0.0.4) (2026-06-19)
 
 
