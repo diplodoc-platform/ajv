@@ -1,34 +1,40 @@
-/**
- * Example function that returns a string.
- *
- * @returns Example string
- *
- * @example
- * ```typescript
- * import {example} from '@diplodoc/package-template';
- *
- * const result = example();
- * console.log(result); // 'example'
- * ```
- */
-export function example(): string {
-    return 'example';
-}
+import frontmatterJson from './json/frontmatter-schema.json';
+import leadingJson from './json/leading-schema.json';
+import pageConstructorJson from './json/page-constructor-schema.json';
+import presetsJson from './json/presets-schema.json';
+import redirectsJson from './json/redirects-schema.json';
+import themeJson from './json/theme-schema.json';
+import tocJson from './json/toc-schema.json';
+import yfmJson from './json/yfm-schema.json';
+import yfmlintJson from './json/yfmlint-schema.json';
+import frontmatterYaml from './yaml/frontmatter-schema.yaml';
+import leadingYaml from './yaml/leading-schema.yaml';
+import pageConstructorYaml from './yaml/page-constructor-schema.yaml';
+import presetsYaml from './yaml/presets-schema.yaml';
+import redirectsYaml from './yaml/redirects-schema.yaml';
+import themeYaml from './yaml/theme-schema.yaml';
+import tocYaml from './yaml/toc-schema.yaml';
+import yfmYaml from './yaml/yfm-schema.yaml';
+import yfmlintYaml from './yaml/yfmlint-schema.yaml';
 
-/**
- * Greets a person by name.
- *
- * @param name - Name of the person to greet
- * @returns Greeting message
- *
- * @example
- * ```typescript
- * import {greet} from '@diplodoc/package-template';
- *
- * const message = greet('Alice');
- * console.log(message); // 'Hello, Alice!'
- * ```
- */
-export function greet(name: string): string {
-    return `Hello, ${name}!`;
-}
+export type Schema = Record<string, unknown>;
+
+export const frontmatterSchemaJson: Schema = frontmatterJson;
+export const leadingSchemaJson: Schema = leadingJson;
+export const pageConstructorSchemaJson: Schema = pageConstructorJson;
+export const presetsSchemaJson: Schema = presetsJson;
+export const redirectsSchemaJson: Schema = redirectsJson;
+export const themeSchemaJson: Schema = themeJson;
+export const tocSchemaJson: Schema = tocJson;
+export const yfmSchemaJson: Schema = yfmJson;
+export const yfmlintSchemaJson: Schema = yfmlintJson;
+
+export const frontmatterSchemaYaml: string = frontmatterYaml;
+export const leadingSchemaYaml: string = leadingYaml;
+export const pageConstructorSchemaYaml: string = pageConstructorYaml;
+export const presetsSchemaYaml: string = presetsYaml;
+export const redirectsSchemaYaml: string = redirectsYaml;
+export const themeSchemaYaml: string = themeYaml;
+export const tocSchemaYaml: string = tocYaml;
+export const yfmSchemaYaml: string = yfmYaml;
+export const yfmlintSchemaYaml: string = yfmlintYaml;

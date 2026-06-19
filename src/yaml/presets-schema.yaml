@@ -1,0 +1,93 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://diplodoc.com/schemas/presets/draft-01/schema#
+title: Diplodoc (presets.yaml)
+type: object
+properties:
+  default:
+    $ref: '#/definitions/preset'
+    description: Default preset — always applied to every build regardless of varsPreset.
+    markdownDescription: |-
+      **`preset`** Default preset — **always applied** to every build regardless of the `varsPreset` setting.
+
+      Define your baseline variables here. Other presets are deep-merged on top.
+
+      ```yaml
+      default:
+        version: '2.0'
+        product_name: My Docs
+      ```
+    defaultSnippets:
+      - label: Default preset with common variables
+        body:
+          version: ${1:1.0}
+          product_name: ${2:My Product}
+          env: ${3:production}
+patternProperties:
+  ^[a-zA-Z0-9\.\-_]+$:
+    $ref: '#/definitions/preset'
+definitions:
+  preset:
+    type: object
+    properties:
+      i18n:
+        type: object
+        patternProperties:
+          ^[a-zA-Z0-9\.\-_]+$:
+            $ref: '#/definitions/property'
+        description: Per-language variable overrides. Keys are language codes, values are variable maps.
+        markdownDescription: |-
+          **`object`** Per-language variable overrides.
+
+          Keys are language codes (e.g. `en`, `ru`). Each value is a map of variable names to their values for that language.
+
+          Variable resolution order: `i18n[currentLang]` → preset root → `default` preset.
+    additionalProperties: true
+    markdownDescription: |-
+      **`{i18n}`** A named set of template variables.
+
+      Variables are available in Liquid expressions as `{{ var_name }}`.
+
+      The special `i18n` key holds per-language variable overrides:
+      ```yaml
+      i18n:
+        en:
+          greeting: Hello
+        ru:
+          greeting: Привет
+      ```
+    description: A named set of template variables. Variables are accessible as {{ var_name }} in Markdown and toc.yaml.
+  property:
+    oneOf:
+      - type: string
+        markdownDescription: '**`string`**'
+      - type: number
+        markdownDescription: '**`number`**'
+      - type: object
+        patternProperties:
+          ^[a-zA-Z0-9\.\-_]+$:
+            $ref: '#/definitions/property'
+    description: 'Preset variable value: string, number, or nested object.'
+    markdownDescription: |-
+      **`string | number | object`** Preset variable value.
+
+      - **string** — text value, supports Markdown inline syntax (`translate: md`)
+      - **number** — numeric value
+      - **object** — nested variable namespace (access as `{{ parent.child }}`)
+markdownDescription: |-
+  Diplodoc presets file (`presets.yaml`).
+  Defines named sets of template variables used in Liquid expressions inside `.md` files and `toc.yaml`.
+  The `default` preset is always applied. Additional presets are activated via `varsPreset` in `.yfm` or the `--vars-preset` CLI flag.
+  ```yaml default:
+    version: '2.0'
+    env: production
+
+  internal:
+    env: internal
+    show_drafts: true
+
+  i18n:
+    en:
+      greeting: Hello
+    ru:
+      greeting: Привет
+  ```

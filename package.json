@@ -1,7 +1,7 @@
 {
-  "name": "@diplodoc/package-template",
-  "version": "2.0.0",
-  "description": "Template package for Diplodoc platform development",
+  "name": "@diplodoc/ajv",
+  "version": "0.0.0",
+  "description": "Diplodoc JSON schemas (toc, presets, frontmatter, page-constructor, and more) with editor enrichment",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "homepage": "https://diplodoc.com/",
@@ -10,21 +10,36 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/diplodoc-platform/package-template.git"
+    "url": "git+https://github.com/diplodoc-platform/ajv.git"
   },
   "bugs": {
-    "url": "https://github.com/diplodoc-platform/diplodoc/issues"
+    "url": "https://github.com/diplodoc-platform/ajv/issues"
   },
-  "private": true,
   "author": "",
   "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "./json/*.json": "./src/json/*.json",
+    "./yaml/*.yaml": "./src/yaml/*.yaml",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "diplodoc-ajv-build-schemas": "scripts/build-schemas.js"
+  },
   "files": [
-    "build"
+    "build",
+    "scripts/build-schemas.js",
+    "src/json/*.json",
+    "src/yaml/*.yaml"
   ],
   "scripts": {
-    "build": "npm run build:clean && npm run build:js && npm run build:declarations",
+    "build": "npm run build:clean && npm run build:schemas && npm run build:js && npm run build:declarations",
+    "build:schemas": "node scripts/build-schemas.js && prettier --write \"src/json/*.json\"",
     "build:js": "node esbuild/build.mjs",
-    "build:declarations": "tsc --project tsconfig.publish.json --emitDeclarationOnly --outDir ./build",
+    "build:declarations": "tsc --project tsconfig.json --emitDeclarationOnly --outDir ./build && rm -f build/*.test.d.ts build/*.spec.d.ts",
     "build:clean": "rm -rf build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -36,10 +51,16 @@
     "prepare": "husky || true",
     "prepublishOnly": "npm run build"
   },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
   "devDependencies": {
     "@diplodoc/infra": "2.0.5",
     "@diplodoc/tsconfig": "^1.0.2",
+    "@types/js-yaml": "^4.0.9",
     "@vitest/coverage-v8": "^2.0.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
     "typescript": "^5.5.3",
     "vitest": "^2.0.0"
   }

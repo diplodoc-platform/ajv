@@ -10,6 +10,7 @@ node_modules
 /cache
 /coverage
 /external
+/scripts
 .lintstagedrc.js
 .eslintrc.js
 .prettierrc.js

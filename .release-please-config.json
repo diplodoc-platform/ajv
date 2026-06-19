@@ -6,6 +6,7 @@
       "include-component-in-tag": false,
       "changelog-path": "CHANGELOG.md",
       "version-file": "package.json",
+      "release-as": "0.0.1",
       "changelog-types": [
         {"type": "feat", "section": "Features"},
         {"type": "fix", "section": "Bug Fixes"},
