@@ -1,0 +1,17 @@
+.idea
+.vscode
+.history
+.env
+.DS_Store
+node_modules
+/lib
+/dist
+/build
+/cache
+/coverage
+/external
+.lintstagedrc.js
+.eslintrc.js
+.prettierrc.js
+.stylelintrc.js
+esbuild/**/*.mjs
