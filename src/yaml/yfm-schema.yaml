@@ -555,6 +555,18 @@ properties:
         $ref: '#/definitions/FileSize'
         description: Maximum asset file size. 0 disables the check.
         markdownDescription: '**`string | integer`** Maximum single asset file size. `0` disables the check.'
+      maxOpenapiIncludeSize:
+        $ref: '#/definitions/FileSize'
+        description: >
+          Maximum size of a generated OpenAPI page (and its spec companion).
+          Pages above the limit are replaced with a stub; companions above the
+          limit are not emitted. 0 disables the check.
+      maxOpenapiIncludeInlineSize:
+        $ref: '#/definitions/FileSize'
+        description: >
+          Maximum size of the OpenAPI specification embedded inline on a leading page.
+          If exceeded, 'leadingPage.spec.renderMode: inline' auto-switches to 'link'.
+          Default: 100K. Hard-capped at 1M. 0 means always render the spec as a link.
       multilineTermDefinitions:
         type: boolean
         description: 'Allow term definitions to span multiple lines. When enabled, a definition continues until the next [*key]: or end of block. Default: false.'

@@ -413,7 +413,8 @@ definitions:
                 enum:
                   - inline
                   - hidden
-                markdownDescription: "**`'inline' | 'hidden'`**"
+                  - link
+                markdownDescription: "**`'inline' | 'hidden' | 'link'`**"
             markdownDescription: '**`{renderMode}`**'
         markdownDescription: '**`{name, mode, spec}`**'
       tags:
