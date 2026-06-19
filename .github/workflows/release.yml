@@ -59,15 +59,18 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: diplodoc-platform/setup-node-action@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ vars.NODE_VERSION || '24' }}
+          node-version: ${{ vars.NODE_VERSION }}
           registry-url: 'https://registry.npmjs.org'
-          cache: ''
-          run-install: 'false'
 
       - uses: codex-team/action-nodejs-package-info@v1
         id: package
+
+      - name: Install latest npm (>= 11.5.1)
+        run: |
+          [ "$(printf '%s\n' "11.5.1" "$(npm -v)" | sort -V | head -n1)" = "11.5.1" ] || npm install -g npm@11.5.1
+        shell: bash
 
       - name: Install dependencies
         if: inputs.release_type != 'deprecate'
@@ -122,21 +125,14 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       # === DEPRECATE STEPS ===
-      # workflow_dispatch inputs are user-controlled. Do not interpolate them
-      # directly into a shell script (${{ inputs.* }} in run:) — pass them
-      # through env: and reference as "$VAR" so quotes / $(...) / ;-chains in
-      # input values cannot escape into the shell.
       - name: Validate deprecate inputs
         if: github.event_name == 'workflow_dispatch' && inputs.release_type == 'deprecate'
-        env:
-          INPUT_DEPRECATE_VERSION: ${{ inputs.deprecate_version }}
-          INPUT_DEPRECATE_MESSAGE: ${{ inputs.deprecate_message }}
         run: |
-          if [[ -z "$INPUT_DEPRECATE_VERSION" ]]; then
+          if [[ -z "${{ inputs.deprecate_version }}" ]]; then
             echo "::error::deprecate_version is required for deprecate action"
             exit 1
           fi
-          if [[ -z "$INPUT_DEPRECATE_MESSAGE" ]]; then
+          if [[ -z "${{ inputs.deprecate_message }}" ]]; then
             echo "::error::deprecate_message is required for deprecate action"
             exit 1
           fi
@@ -145,25 +141,23 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && inputs.release_type == 'deprecate'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          # See note above the "Validate deprecate inputs" step.
-          PACKAGE_NAME: ${{ steps.package.outputs.name }}
-          INPUT_DEPRECATE_VERSION: ${{ inputs.deprecate_version }}
-          INPUT_DEPRECATE_MESSAGE: ${{ inputs.deprecate_message }}
-          INPUT_DEPRECATE_NEW_LATEST: ${{ inputs.deprecate_new_latest }}
         run: |
           set -e
 
-          LATEST="$(npm view "$PACKAGE_NAME@latest" version 2>/dev/null || echo '')"
-          TARGET="$PACKAGE_NAME@$INPUT_DEPRECATE_VERSION"
+          PACKAGE="${{ steps.package.outputs.name }}"
+          LATEST="$(npm view $PACKAGE@latest version 2>/dev/null || echo '')"
+          VERSION="${{ inputs.deprecate_version }}"
+          MESSAGE="${{ inputs.deprecate_message }}"
+          TARGET="$PACKAGE@$VERSION"
 
-          if [[ "$LATEST" == "$INPUT_DEPRECATE_VERSION" ]]; then
-            if [[ -z "$INPUT_DEPRECATE_NEW_LATEST" ]]; then
+          if [[ "$LATEST" == "$VERSION" ]]; then
+            if [[ -z "${{ inputs.deprecate_new_latest }}" ]]; then
               echo "::error::deprecate_new_latest is required when deprecating the current latest version ($LATEST)"
               exit 1
             fi
-            echo "::notice::Setting new latest tag to $PACKAGE_NAME@$INPUT_DEPRECATE_NEW_LATEST"
-            npm dist-tag add "$PACKAGE_NAME@$INPUT_DEPRECATE_NEW_LATEST" latest
+            echo "::notice::Setting new latest tag to $PACKAGE@${{ inputs.deprecate_new_latest }}"
+            npm dist-tag add "$PACKAGE@${{ inputs.deprecate_new_latest }}" latest
           fi
 
-          echo "::notice::Deprecating $TARGET. Reason: $INPUT_DEPRECATE_MESSAGE"
-          npm deprecate "$TARGET" "$INPUT_DEPRECATE_MESSAGE"
+          echo "::notice::Deprecating $TARGET. Reason: $MESSAGE"
+          npm deprecate "$TARGET" "$MESSAGE"
