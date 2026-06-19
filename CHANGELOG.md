@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.4](https://github.com/diplodoc-platform/ajv/compare/v0.0.3...v0.0.4) (2026-06-19)
+
+
+### Bug Fixes
+
+* updated schemas ([43fdb39](https://github.com/diplodoc-platform/ajv/commit/43fdb3959631530b2b2abb32c8bc478072b3b4d4))
+* updated schemas ([9a6b1e4](https://github.com/diplodoc-platform/ajv/commit/9a6b1e49e15371234ee96afbe3369665443b144b))
+
 ## [0.0.3](https://github.com/diplodoc-platform/ajv/compare/v0.0.2...v0.0.3) (2026-06-19)
 
 
