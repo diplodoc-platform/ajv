@@ -475,8 +475,8 @@
               "properties": {
                 "renderMode": {
                   "type": "string",
-                  "enum": ["inline", "hidden"],
-                  "markdownDescription": "**`'inline' | 'hidden'`**"
+                  "enum": ["inline", "hidden", "link"],
+                  "markdownDescription": "**`'inline' | 'hidden' | 'link'`**"
                 }
               },
               "markdownDescription": "**`{renderMode}`**"
