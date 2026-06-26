@@ -1,3 +1,14 @@
+**english** | [русский](https://github.com/diplodoc-platform/ajv/blob/master/README.ru.md)
+
+---
+
+[![NPM version](https://img.shields.io/npm/v/@diplodoc/ajv.svg?style=flat)](https://www.npmjs.org/package/@diplodoc/ajv)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=diplodoc-platform_ajv&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=diplodoc-platform_ajv)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=diplodoc-platform_ajv&metric=coverage)](https://sonarcloud.io/summary/new_code?id=diplodoc-platform_ajv)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=diplodoc-platform_ajv&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=diplodoc-platform_ajv)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=diplodoc-platform_ajv&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=diplodoc-platform_ajv)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=diplodoc-platform_ajv&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=diplodoc-platform_ajv)
+
 # @diplodoc/ajv
 
 JSON schemas for Diplodoc configuration files (`toc.yaml`, `presets.yaml`, frontmatter,
