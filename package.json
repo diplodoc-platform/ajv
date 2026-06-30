@@ -1,6 +1,6 @@
 {
   "name": "@diplodoc/ajv",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Diplodoc JSON schemas (toc, presets, frontmatter, page-constructor, and more) with editor enrichment",
   "main": "build/index.js",
   "types": "build/index.d.ts",
