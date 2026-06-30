@@ -59,6 +59,51 @@ definitions:
                 - type: string
                   markdownDescription: '**`string`**'
                   translate: md
+                - type: object
+                  additionalProperties: false
+                  required:
+                    - text
+                  properties:
+                    text:
+                      type: string
+                      markdownDescription: '**`string`**'
+                      translate: md
+                    textSize:
+                      type: string
+                      enum:
+                        - xs
+                        - s
+                        - sm
+                        - m
+                        - l
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
+                    url:
+                      type: string
+                      markdownDescription: '**`string`**'
+                    urlTitle:
+                      type: string
+                      markdownDescription: '**`string`**'
+                      translate: md
+                    anchor:
+                      type: string
+                      markdownDescription: '**`string`**'
+                    justify:
+                      type: string
+                      enum:
+                        - start
+                        - center
+                        - end
+                      markdownDescription: "**`'start' | 'center' | 'end'`**"
+                    navTitle:
+                      type: string
+                      markdownDescription: '**`string`**'
+                    qa:
+                      type: string
+                      markdownDescription: '**`string`**'
+                    resetMargin:
+                      type: boolean
+                      markdownDescription: '**`boolean`**'
+                  markdownDescription: '**`{text, textSize, url, ...}`**'
             type: {}
             when:
               type: string
@@ -123,7 +168,9 @@ definitions:
                     - '0'
                     - xxs
                     - xs
+                    - xs
                     - s
+                    - sm
                     - m
                     - l
                     - xl
@@ -144,6 +191,29 @@ definitions:
             animated:
               type: boolean
               markdownDescription: '**`boolean`**'
+            centered:
+              type: boolean
+              markdownDescription: '**`boolean`**'
+            titleClassName:
+              type: string
+              markdownDescription: '**`string`**'
+            loadable:
+              type: object
+              additionalProperties: false
+              required:
+                - source
+              properties:
+                source:
+                  type: string
+                  markdownDescription: '**`string`**'
+                serviceId:
+                  type: number
+                  markdownDescription: '**`number`**'
+                params:
+                  type: object
+                  additionalProperties: true
+                  markdownDescription: '**`Record<string, string | number | boolean | object>`**'
+              markdownDescription: '**`{source, serviceId?, params?}`**'
             description:
               type: string
               inputType: textarea
@@ -424,10 +494,12 @@ definitions:
                     textSize:
                       type: string
                       enum:
+                        - xs
                         - s
+                        - sm
                         - m
                         - l
-                      markdownDescription: "**`'s' | 'm' | 'l'`**"
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     url:
                       type: string
                       markdownDescription: '**`string`**'
@@ -502,10 +574,12 @@ definitions:
                       textSize:
                         type: string
                         enum:
+                          - xs
                           - s
+                          - sm
                           - m
                           - l
-                        markdownDescription: "**`'s' | 'm' | 'l'`**"
+                        markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                       target:
                         type: string
                         enum:
@@ -1344,10 +1418,12 @@ definitions:
                     textSize:
                       type: string
                       enum:
+                        - xs
                         - s
+                        - sm
                         - m
                         - l
-                      markdownDescription: "**`'s' | 'm' | 'l'`**"
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     url:
                       type: string
                       markdownDescription: '**`string`**'
@@ -2129,7 +2205,9 @@ definitions:
                     - '0'
                     - xxs
                     - xs
+                    - xs
                     - s
+                    - sm
                     - m
                     - l
                     - xl
@@ -2158,6 +2236,9 @@ definitions:
               type: boolean
               markdownDescription: '**`boolean`**'
             randomOrder:
+              type: boolean
+              markdownDescription: '**`boolean`**'
+            adaptive:
               type: boolean
               markdownDescription: '**`boolean`**'
             autoplay:
@@ -2206,7 +2287,7 @@ definitions:
                     - s
                     - m
                     - l
-                  markdownDescription: "**`'s' | 'm' | 'l'`**"
+                  markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
             loadable:
               additionalProperties: false
               required:
@@ -2254,10 +2335,12 @@ definitions:
                     textSize:
                       type: string
                       enum:
+                        - xs
                         - s
+                        - sm
                         - m
                         - l
-                      markdownDescription: "**`'s' | 'm' | 'l'`**"
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     url:
                       type: string
                       markdownDescription: '**`string`**'
@@ -2348,7 +2431,9 @@ definitions:
                     - '0'
                     - xxs
                     - xs
+                    - xs
                     - s
+                    - sm
                     - m
                     - l
                     - xl
@@ -2383,10 +2468,12 @@ definitions:
                     textSize:
                       type: string
                       enum:
+                        - xs
                         - s
+                        - sm
                         - m
                         - l
-                      markdownDescription: "**`'s' | 'm' | 'l'`**"
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     url:
                       type: string
                       markdownDescription: '**`string`**'
@@ -2444,10 +2531,12 @@ definitions:
                   textSize:
                     type: string
                     enum:
+                      - xs
                       - s
+                      - sm
                       - m
                       - l
-                    markdownDescription: "**`'s' | 'm' | 'l'`**"
+                    markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                   target:
                     type: string
                     enum:
@@ -3418,10 +3507,12 @@ definitions:
                       textSize:
                         type: string
                         enum:
+                          - xs
                           - s
+                          - sm
                           - m
                           - l
-                        markdownDescription: "**`'s' | 'm' | 'l'`**"
+                        markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                       target:
                         type: string
                         enum:
@@ -3616,6 +3707,10 @@ definitions:
             description:
               type: string
               inputType: textarea
+              markdownDescription: '**`string`**'
+              translate: md
+            additionalInfo:
+              type: string
               markdownDescription: '**`string`**'
               translate: md
             width:
@@ -7296,10 +7391,12 @@ definitions:
                     textSize:
                       type: string
                       enum:
+                        - xs
                         - s
+                        - sm
                         - m
                         - l
-                      markdownDescription: "**`'s' | 'm' | 'l'`**"
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     url:
                       type: string
                       markdownDescription: '**`string`**'
@@ -7358,10 +7455,12 @@ definitions:
                   textSize:
                     type: string
                     enum:
+                      - xs
                       - s
+                      - sm
                       - m
                       - l
-                    markdownDescription: "**`'s' | 'm' | 'l'`**"
+                    markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                   target:
                     type: string
                     enum:
@@ -10630,10 +10729,12 @@ definitions:
                     textSize:
                       type: string
                       enum:
+                        - xs
                         - s
+                        - sm
                         - m
                         - l
-                      markdownDescription: "**`'s' | 'm' | 'l'`**"
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     url:
                       type: string
                       markdownDescription: '**`string`**'
@@ -10692,10 +10793,12 @@ definitions:
                   textSize:
                     type: string
                     enum:
+                      - xs
                       - s
+                      - sm
                       - m
                       - l
-                    markdownDescription: "**`'s' | 'm' | 'l'`**"
+                    markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                   target:
                     type: string
                     enum:
@@ -12187,10 +12290,12 @@ definitions:
                   textSize:
                     type: string
                     enum:
+                      - xs
                       - s
+                      - sm
                       - m
                       - l
-                    markdownDescription: "**`'s' | 'm' | 'l'`**"
+                    markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                   target:
                     type: string
                     enum:
@@ -12296,10 +12401,12 @@ definitions:
                         textSize:
                           type: string
                           enum:
+                            - xs
                             - s
+                            - sm
                             - m
                             - l
-                          markdownDescription: "**`'s' | 'm' | 'l'`**"
+                          markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                         url:
                           type: string
                           markdownDescription: '**`string`**'
@@ -12357,10 +12464,12 @@ definitions:
                       textSize:
                         type: string
                         enum:
+                          - xs
                           - s
+                          - sm
                           - m
                           - l
-                        markdownDescription: "**`'s' | 'm' | 'l'`**"
+                        markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                       target:
                         type: string
                         enum:
@@ -13297,10 +13406,12 @@ definitions:
                         textSize:
                           type: string
                           enum:
+                            - xs
                             - s
+                            - sm
                             - m
                             - l
-                          markdownDescription: "**`'s' | 'm' | 'l'`**"
+                          markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                         url:
                           type: string
                           markdownDescription: '**`string`**'
@@ -13358,10 +13469,12 @@ definitions:
                       textSize:
                         type: string
                         enum:
+                          - xs
                           - s
+                          - sm
                           - m
                           - l
-                        markdownDescription: "**`'s' | 'm' | 'l'`**"
+                        markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                       target:
                         type: string
                         enum:
@@ -14533,10 +14646,12 @@ definitions:
                     textSize:
                       type: string
                       enum:
+                        - xs
                         - s
+                        - sm
                         - m
                         - l
-                      markdownDescription: "**`'s' | 'm' | 'l'`**"
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     url:
                       type: string
                       markdownDescription: '**`string`**'
@@ -14588,6 +14703,9 @@ definitions:
             centered:
               type: boolean
               markdownDescription: '**`boolean`**'
+            animated:
+              type: boolean
+              markdownDescription: '**`boolean`**'
             items:
               type: array
               items:
@@ -14616,10 +14734,12 @@ definitions:
                           textSize:
                             type: string
                             enum:
+                              - xs
                               - s
+                              - sm
                               - m
                               - l
-                            markdownDescription: "**`'s' | 'm' | 'l'`**"
+                            markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                           url:
                             type: string
                             markdownDescription: '**`string`**'
@@ -14677,10 +14797,12 @@ definitions:
                         textSize:
                           type: string
                           enum:
+                            - xs
                             - s
+                            - sm
                             - m
                             - l
-                          markdownDescription: "**`'s' | 'm' | 'l'`**"
+                          markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                         target:
                           type: string
                           enum:
@@ -17623,10 +17745,12 @@ definitions:
                       textSize:
                         type: string
                         enum:
+                          - xs
                           - s
+                          - sm
                           - m
                           - l
-                        markdownDescription: "**`'s' | 'm' | 'l'`**"
+                        markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                       target:
                         type: string
                         enum:
@@ -22061,10 +22185,12 @@ definitions:
                         textSize:
                           type: string
                           enum:
+                            - xs
                             - s
+                            - sm
                             - m
                             - l
-                          markdownDescription: "**`'s' | 'm' | 'l'`**"
+                          markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                         url:
                           type: string
                           markdownDescription: '**`string`**'
@@ -22128,10 +22254,12 @@ definitions:
                       textSize:
                         type: string
                         enum:
+                          - xs
                           - s
+                          - sm
                           - m
                           - l
-                        markdownDescription: "**`'s' | 'm' | 'l'`**"
+                        markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                       target:
                         type: string
                         enum:
@@ -23112,10 +23240,12 @@ definitions:
                   textSize:
                     type: string
                     enum:
+                      - xs
                       - s
+                      - sm
                       - m
                       - l
-                    markdownDescription: "**`'s' | 'm' | 'l'`**"
+                    markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                   theme:
                     type: string
                     enum:
@@ -23491,10 +23621,12 @@ definitions:
                     textSize:
                       type: string
                       enum:
+                        - xs
                         - s
+                        - sm
                         - m
                         - l
-                      markdownDescription: "**`'s' | 'm' | 'l'`**"
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     url:
                       type: string
                       markdownDescription: '**`string`**'
@@ -23593,7 +23725,9 @@ definitions:
             tagButtonSize:
               type: string
               enum:
+                - xs
                 - s
+                - sm
                 - m
                 - l
                 - xl
@@ -23855,10 +23989,12 @@ definitions:
                         textSize:
                           type: string
                           enum:
+                            - xs
                             - s
+                            - sm
                             - m
                             - l
-                          markdownDescription: "**`'s' | 'm' | 'l'`**"
+                          markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                         url:
                           type: string
                           markdownDescription: '**`string`**'
@@ -23916,10 +24052,12 @@ definitions:
                       textSize:
                         type: string
                         enum:
+                          - xs
                           - s
+                          - sm
                           - m
                           - l
-                        markdownDescription: "**`'s' | 'm' | 'l'`**"
+                        markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                       target:
                         type: string
                         enum:
@@ -25257,10 +25395,12 @@ definitions:
                     textSize:
                       type: string
                       enum:
+                        - xs
                         - s
+                        - sm
                         - m
                         - l
-                      markdownDescription: "**`'s' | 'm' | 'l'`**"
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     url:
                       type: string
                       markdownDescription: '**`string`**'
@@ -26052,10 +26192,12 @@ definitions:
             width:
               type: string
               enum:
+                - xs
                 - s
+                - sm
                 - m
                 - l
-              markdownDescription: "**`'s' | 'm' | 'l'`**"
+              markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
             button:
               type: object
               additionalProperties: false
@@ -26572,10 +26714,12 @@ definitions:
                     textSize:
                       type: string
                       enum:
+                        - xs
                         - s
+                        - sm
                         - m
                         - l
-                      markdownDescription: "**`'s' | 'm' | 'l'`**"
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     url:
                       type: string
                       markdownDescription: '**`string`**'
@@ -26633,10 +26777,12 @@ definitions:
                   textSize:
                     type: string
                     enum:
+                      - xs
                       - s
+                      - sm
                       - m
                       - l
-                    markdownDescription: "**`'s' | 'm' | 'l'`**"
+                    markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                   target:
                     type: string
                     enum:
@@ -27732,6 +27878,42 @@ definitions:
                 - l
                 - xl
               markdownDescription: "**`'s' | 'm' | 'l' | 'xl'`**"
+            size:
+              type: string
+              enum:
+                - s
+                - m
+                - l
+              markdownDescription: "**`'s' | 'm' | 'l'`**"
+            colSizes:
+              type: object
+              properties:
+                all:
+                  type: number
+                  maximum: 12
+                  minimum: 1
+                  markdownDescription: '**`number`**'
+                sm:
+                  type: number
+                  maximum: 12
+                  minimum: 1
+                  markdownDescription: '**`number`**'
+                md:
+                  type: number
+                  maximum: 12
+                  minimum: 1
+                  markdownDescription: '**`number`**'
+                lg:
+                  type: number
+                  maximum: 12
+                  minimum: 1
+                  markdownDescription: '**`number`**'
+                xl:
+                  type: number
+                  maximum: 12
+                  minimum: 1
+                  markdownDescription: '**`number`**'
+              markdownDescription: '**`{all, sm, md, lg, xl}`**'
             analyticsEvents:
               oneOf:
                 - type: object
@@ -28885,6 +29067,39 @@ definitions:
                 - chevron
                 - english-double
               markdownDescription: "**`'chevron' | 'english-double'`**"
+            border:
+              type: string
+              enum:
+                - line
+                - shadow
+                - none
+              markdownDescription: "**`'line' | 'shadow' | 'none'`**"
+            button:
+              type: object
+              additionalProperties: false
+              required:
+                - text
+                - url
+              properties:
+                text:
+                  type: string
+                  markdownDescription: '**`string`**'
+                  translate: md
+                url:
+                  type: string
+                  markdownDescription: '**`string`**'
+                target:
+                  type: string
+                  enum:
+                    - _blank
+                    - _parent
+                    - _top
+                    - _self
+                  markdownDescription: "**`'_blank' | '_parent' | '_top' | '_self'`**"
+                theme:
+                  type: string
+                  markdownDescription: '**`string`**'
+              markdownDescription: '**`{text, url, target?, theme?}`**'
       - if:
           properties:
             type:
@@ -28927,10 +29142,12 @@ definitions:
                     textSize:
                       type: string
                       enum:
+                        - xs
                         - s
+                        - sm
                         - m
                         - l
-                      markdownDescription: "**`'s' | 'm' | 'l'`**"
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     url:
                       type: string
                       markdownDescription: '**`string`**'
@@ -28988,10 +29205,12 @@ definitions:
                   textSize:
                     type: string
                     enum:
+                      - xs
                       - s
+                      - sm
                       - m
                       - l
-                    markdownDescription: "**`'s' | 'm' | 'l'`**"
+                    markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                   target:
                     type: string
                     enum:
@@ -30118,6 +30337,35 @@ definitions:
                 - _top
                 - _self
               markdownDescription: "**`'_blank' | '_parent' | '_top' | '_self'`**"
+            gravityIcon:
+              oneOf:
+                - type: string
+                  markdownDescription: '**`string`**'
+                - type: object
+                  additionalProperties: false
+                  required:
+                    - name
+                    - color
+                  properties:
+                    name:
+                      type: string
+                      markdownDescription: '**`string`**'
+                    color:
+                      type: string
+                      enum:
+                        - brand
+                        - text-color
+                      markdownDescription: "**`'brand' | 'text-color'`**"
+                  markdownDescription: '**`{name, color}`**'
+              markdownDescription: '**`GravityIconProps`**'
+            size:
+              type: string
+              enum:
+                - s
+                - m
+                - l
+                - xl
+              markdownDescription: "**`'s' | 'm' | 'l' | 'xl'`**"
             iconPosition:
               type: string
               enum:
@@ -30397,10 +30645,12 @@ definitions:
                   textSize:
                     type: string
                     enum:
+                      - xs
                       - s
+                      - sm
                       - m
                       - l
-                    markdownDescription: "**`'s' | 'm' | 'l'`**"
+                    markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                   target:
                     type: string
                     enum:
@@ -30544,10 +30794,12 @@ definitions:
                     textSize:
                       type: string
                       enum:
+                        - xs
                         - s
+                        - sm
                         - m
                         - l
-                      markdownDescription: "**`'s' | 'm' | 'l'`**"
+                      markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     url:
                       type: string
                       markdownDescription: '**`string`**'
@@ -30611,10 +30863,12 @@ definitions:
                   textSize:
                     type: string
                     enum:
+                      - xs
                       - s
+                      - sm
                       - m
                       - l
-                    markdownDescription: "**`'s' | 'm' | 'l'`**"
+                    markdownDescription: "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                   target:
                     type: string
                     enum:
@@ -31755,6 +32009,17 @@ definitions:
               type: string
               markdownDescription: '**`string`**'
               translate: md
+            target:
+              type: string
+              enum:
+                - _blank
+                - _parent
+                - _top
+                - _self
+              markdownDescription: "**`'_blank' | '_parent' | '_top' | '_self'`**"
+            enableImageBorderRadius:
+              type: boolean
+              markdownDescription: '**`boolean`**'
     markdownDescription: '**`{when, type}`**'
 properties:
   meta:
