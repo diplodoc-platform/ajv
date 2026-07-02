@@ -49,13 +49,14 @@
     "lint:fix": "lint fix",
     "pre-commit": "lint-staged",
     "prepare": "husky || true",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "lock": "npm install --no-workspaces --package-lock-only --ignore-scripts"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {
-    "@diplodoc/infra": "2.0.7",
+    "@diplodoc/infra": "2.1.0",
     "@diplodoc/tsconfig": "^1.0.2",
     "@types/js-yaml": "^4.0.9",
     "@vitest/coverage-v8": "^2.0.0",
