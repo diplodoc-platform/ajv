@@ -16,13 +16,7 @@
       "markdownDescription": "**`string`** Meta description for SEO (`<meta name=\"description\">`). Shown in search engine snippets."
     },
     "keywords": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "markdownDescription": "**`string`**"
-      },
-      "description": "Keywords for the meta keywords tag.",
-      "markdownDescription": "**`string[]`** Keywords for the `<meta name=\"keywords\">` tag.\n\n```yaml\nkeywords:\n  - cloud\n  - storage\n  - s3\n```"
+      "$ref": "#/definitions/Keywords"
     },
     "noIndex": {
       "type": "boolean",
@@ -397,6 +391,29 @@
       "additionalProperties": false,
       "markdownDescription": "**`Alternate`** Alternate language version of this page for `<link rel=\"alternate\">`.",
       "description": "Alternate language version of this page."
+    },
+    "Keywords": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "markdownDescription": "**`string`**"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "keyword": {
+                "type": "string"
+              }
+            },
+            "required": ["keyword"],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "description": "Keywords for the meta keywords tag.",
+      "markdownDescription": "**`string[] | {keyword: string}[]`** Keywords for the `<meta name=\"keywords\">` tag.\n\n```yaml\nkeywords:\n  - cloud\n  - storage\n  - s3\n```"
     },
     "MetaItem": {
       "type": "object",
