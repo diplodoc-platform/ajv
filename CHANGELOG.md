@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.7](https://github.com/diplodoc-platform/ajv/compare/v0.0.6...v0.0.7) (2026-07-09)
+
+
+### Bug Fixes
+
+* add build manifest schema ([c747fa7](https://github.com/diplodoc-platform/ajv/commit/c747fa7a2d55873455d27061838c09eb98fd7dbc))
+* add meta keywords in schema for html parse ([#21](https://github.com/diplodoc-platform/ajv/issues/21)) ([62dcff0](https://github.com/diplodoc-platform/ajv/commit/62dcff02c81ad5ec9cb013b97dc75a9185803819))
+
 ## [0.0.6](https://github.com/diplodoc-platform/ajv/compare/v0.0.5...v0.0.6) (2026-06-30)
 
 
