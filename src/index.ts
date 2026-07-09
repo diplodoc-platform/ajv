@@ -1,3 +1,4 @@
+import buildManifestJson from './json/build-manifest-schema.json';
 import frontmatterJson from './json/frontmatter-schema.json';
 import leadingJson from './json/leading-schema.json';
 import pageConstructorJson from './json/page-constructor-schema.json';
@@ -7,6 +8,7 @@ import themeJson from './json/theme-schema.json';
 import tocJson from './json/toc-schema.json';
 import yfmJson from './json/yfm-schema.json';
 import yfmlintJson from './json/yfmlint-schema.json';
+import buildManifestYaml from './yaml/build-manifest-schema.yaml';
 import frontmatterYaml from './yaml/frontmatter-schema.yaml';
 import leadingYaml from './yaml/leading-schema.yaml';
 import pageConstructorYaml from './yaml/page-constructor-schema.yaml';
@@ -19,6 +21,7 @@ import yfmlintYaml from './yaml/yfmlint-schema.yaml';
 
 export type Schema = Record<string, unknown>;
 
+export const buildManifestSchemaJson: Schema = buildManifestJson;
 export const frontmatterSchemaJson: Schema = frontmatterJson;
 export const leadingSchemaJson: Schema = leadingJson;
 export const pageConstructorSchemaJson: Schema = pageConstructorJson;
@@ -29,6 +32,7 @@ export const tocSchemaJson: Schema = tocJson;
 export const yfmSchemaJson: Schema = yfmJson;
 export const yfmlintSchemaJson: Schema = yfmlintJson;
 
+export const buildManifestSchemaYaml: string = buildManifestYaml;
 export const frontmatterSchemaYaml: string = frontmatterYaml;
 export const leadingSchemaYaml: string = leadingYaml;
 export const pageConstructorSchemaYaml: string = pageConstructorYaml;

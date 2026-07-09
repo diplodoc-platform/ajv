@@ -1,0 +1,98 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://diplodoc.com/schemas/build-manifest/draft-01/schema#
+title: Diplodoc (yfm-build-manifest.json)
+description: >
+  Build manifest emitted by `@diplodoc/cli` when `buildManifest: true`.
+  Describes project structure, redirects, YFM config, and optional per-page metadata.
+type: object
+required:
+  - fileTrie
+  - yfmConfig
+  - redirects
+properties:
+  fileTrie:
+    $ref: '#/definitions/FileTrieEntryPoint'
+    description: Prefix tree of built documentation paths and TOC mapping.
+  yfmConfig:
+    type: object
+    description: Parsed `.yfm` project configuration.
+  redirects:
+    type: object
+    description: Raw `redirects.yaml` content.
+  openapiCompanions:
+    type: array
+    items:
+      $ref: '#/definitions/OpenapiCompanionEntry'
+    description: Maps generated OpenAPI leading pages to standalone spec companion files.
+  restrictedAccess:
+    $ref: '#/definitions/RestrictedAccessMap'
+    description: >
+      Sparse map of lang-relative page paths (without extension) to merged
+      `restricted-access` rules from md2md frontmatter. Always present in
+      current CLI builds (may be `{}` when no page has restrictions). Absent
+      only in legacy manifests produced before this field existed.
+additionalProperties: false
+definitions:
+  FileTrieEntryPoint:
+    type: object
+    required:
+      - trie
+      - tocMapping
+    properties:
+      trie:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/TrieNode'
+      tocMapping:
+        type: object
+        additionalProperties:
+          type: string
+    additionalProperties: false
+  TrieNode:
+    type: object
+    properties:
+      file:
+        $ref: '#/definitions/FileDescriptor'
+      children:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/TrieNode'
+    additionalProperties: false
+  FileDescriptor:
+    type: object
+    required:
+      - ext
+      - toc
+    properties:
+      ext:
+        type: string
+        description: File extension including the leading dot (e.g. `.md`).
+      toc:
+        type: string
+        description: Short TOC id referencing `fileTrie.tocMapping`.
+    additionalProperties: false
+  OpenapiCompanionEntry:
+    type: object
+    required:
+      - leadingPage
+      - companionPath
+    properties:
+      leadingPage:
+        type: string
+        description: Lang-relative path of the leading page (without extension).
+      companionPath:
+        type: string
+        description: Lang-relative path of the companion OpenAPI JSON file.
+    additionalProperties: false
+  RestrictedAccessRules:
+    type: array
+    items:
+      type: array
+      items:
+        type: string
+    description: >
+      Access restriction rules. Each inner array is AND; outer items are OR.
+  RestrictedAccessMap:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/RestrictedAccessRules'

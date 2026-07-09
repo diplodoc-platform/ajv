@@ -6,6 +6,7 @@ import addFormats from 'ajv-formats';
 import * as schemas from './index';
 
 const SCHEMAS = [
+    'buildManifestSchema',
     'frontmatterSchema',
     'leadingSchema',
     'pageConstructorSchema',
