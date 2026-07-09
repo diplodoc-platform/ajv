@@ -1,8 +1,9 @@
-import {describe, expect, it, beforeAll} from 'vitest';
+import type {ValidateFunction} from 'ajv';
+
+import {beforeAll, describe, expect, it} from 'vitest';
 import {load} from 'js-yaml';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
-import type {ValidateFunction} from 'ajv';
 
 import {buildManifestSchemaJson, buildManifestSchemaYaml} from './index';
 
