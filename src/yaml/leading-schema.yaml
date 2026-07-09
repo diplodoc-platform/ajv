@@ -36,12 +36,7 @@ properties:
         description: Adds noindex/nofollow meta tag to prevent search engine indexing.
         markdownDescription: '**`boolean`** Prevent search engine indexing of this page.'
       keywords:
-        type: array
-        items:
-          type: string
-          markdownDescription: '**`string`**'
-        description: Keywords for the meta keywords tag.
-        markdownDescription: '**`string[]`** Keywords for the `<meta name="keywords">` tag.'
+        $ref: '#/definitions/Keywords'
       canonical:
         type: string
         format: uri
@@ -289,6 +284,21 @@ definitions:
     additionalProperties: false
     markdownDescription: '**`Alternate`** Alternate language version for `<link rel="alternate">`.'
     description: Alternate language version of this page.
+  Keywords:
+    type: array
+    items:
+      oneOf:
+        - type: string
+          markdownDescription: '**`string`**'
+        - type: object
+          properties:
+            keyword:
+              type: string
+          required:
+            - keyword
+          additionalProperties: false
+    description: Keywords for the meta keywords tag.
+    markdownDescription: '**`string[] | {keyword: string}[]`** Keywords for the `<meta name="keywords">` tag.'
   MetaItem:
     type: object
     properties:

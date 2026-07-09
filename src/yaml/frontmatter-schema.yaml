@@ -16,20 +16,7 @@ properties:
     description: Meta description for SEO.
     markdownDescription: '**`string`** Meta description for SEO (`<meta name="description">`). Shown in search engine snippets.'
   keywords:
-    type: array
-    items:
-      type: string
-      markdownDescription: '**`string`**'
-    description: Keywords for the meta keywords tag.
-    markdownDescription: |-
-      **`string[]`** Keywords for the `<meta name="keywords">` tag.
-
-      ```yaml
-      keywords:
-        - cloud
-        - storage
-        - s3
-      ```
+    $ref: '#/definitions/Keywords'
   noIndex:
     type: boolean
     description: Adds noindex/nofollow meta tag to prevent search engine indexing.
@@ -373,6 +360,29 @@ definitions:
     additionalProperties: false
     markdownDescription: '**`Alternate`** Alternate language version of this page for `<link rel="alternate">`.'
     description: Alternate language version of this page.
+  Keywords:
+    type: array
+    items:
+      oneOf:
+        - type: string
+          markdownDescription: '**`string`**'
+        - type: object
+          properties:
+            keyword:
+              type: string
+          required:
+            - keyword
+          additionalProperties: false
+    description: Keywords for the meta keywords tag.
+    markdownDescription: |-
+      **`string[] | {keyword: string}[]`** Keywords for the `<meta name="keywords">` tag.
+
+      ```yaml
+      keywords:
+        - cloud
+        - storage
+        - s3
+      ```
   MetaItem:
     type: object
     properties:
