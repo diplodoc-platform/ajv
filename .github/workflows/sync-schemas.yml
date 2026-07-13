@@ -6,10 +6,6 @@ name: Sync schemas
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    paths:
-      - 'src/yaml/**/*.yaml'
-      - 'src/yaml/**/*.yml'
-      - 'scripts/build-schemas.js'
 
 permissions:
   contents: write
@@ -17,24 +13,26 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    # Skip PRs from forks: they don't get a write token, so the push would fail.
-    if: github.event.pull_request.head.repo.full_name == github.repository
     steps:
       - name: Checkout PR branch
+        if: github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
       - name: Setup Node.js and install dependencies
+        if: github.event.pull_request.head.repo.full_name == github.repository
         uses: diplodoc-platform/setup-node-action@v1
         with:
           node-version: ${{ vars.NODE_VERSION || '24' }}
 
       - name: Regenerate JSON from YAML
+        if: github.event.pull_request.head.repo.full_name == github.repository
         run: npm run build:schemas
 
       - name: Commit regenerated JSON
+        if: github.event.pull_request.head.repo.full_name == github.repository
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: sync generated json schemas'
