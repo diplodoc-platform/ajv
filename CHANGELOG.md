@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.0](https://github.com/diplodoc-platform/ajv/compare/v0.0.7...v0.1.0) (2026-07-13)
+
+
+### Features
+
+* added footer ([#24](https://github.com/diplodoc-platform/ajv/issues/24)) ([db30ebc](https://github.com/diplodoc-platform/ajv/commit/db30ebc945bb0a4c0dea5517b7a38b2d682f9a2b))
+
+
+### Bug Fixes
+
+* fixed sync ([#26](https://github.com/diplodoc-platform/ajv/issues/26)) ([727fa03](https://github.com/diplodoc-platform/ajv/commit/727fa03098e98992a9331c783b5f1d0def12f692))
+
 ## [0.0.7](https://github.com/diplodoc-platform/ajv/compare/v0.0.6...v0.0.7) (2026-07-09)
 
 
