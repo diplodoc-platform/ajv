@@ -454,6 +454,24 @@
       "description": "Override the base brand color or disable theming. null disables theme.yaml processing.",
       "markdownDescription": "**`string | null`** Path to a `theme.yaml` file that overrides brand colors.\n\n- `null` — disable theme processing entirely"
     },
+    "codeHighlight": {
+      "type": ["object", "null"],
+      "properties": {
+        "light": {
+          "type": "string",
+          "markdownDescription": "**`string`** Highlight.js theme for the light UI theme.",
+          "description": "Highlight.js theme for light UI theme."
+        },
+        "dark": {
+          "type": "string",
+          "markdownDescription": "**`string`** Highlight.js theme for the dark UI theme.",
+          "description": "Highlight.js theme for dark UI theme."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Code highlighting themes for light and dark UI variants. Use any theme name from highlight.js/styles without .css extension. Use \"diplodoc\" to keep the built-in Diplodoc code highlighting style.\n",
+      "markdownDescription": "**`{light, dark} | null`** Code highlighting themes for light and dark UI variants.\n\nUse any theme name from `highlight.js/styles` (without the `.css` extension),\nor `diplodoc` to keep the built-in Diplodoc code highlighting style."
+    },
     "search": {
       "oneOf": [
         {
@@ -621,6 +639,27 @@
           }
         }
       ]
+    },
+    "ai": {
+      "type": "object",
+      "properties": {
+        "openapiCompanions": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string",
+              "enum": ["md"]
+            }
+          ],
+          "description": "Emit standalone OpenAPI spec companions (*.openapi.json, name derived from the source spec) next to generated OpenAPI leading pages. true — emit in both md2md and md2html; 'md' — emit only in md2md (default); false — disabled.\n",
+          "markdownDescription": "**`boolean | 'md'`** Emit standalone OpenAPI spec companions (`*.openapi.json`)\nnext to generated OpenAPI leading pages.\n\n- `true` — emit in both md2md and md2html\n- `'md'` — emit only in md2md (default)\n- `false` — disabled"
+        }
+      },
+      "additionalProperties": false,
+      "description": "AI-related build options.",
+      "markdownDescription": "**`{openapiCompanions}`** AI-related build options."
     },
     "removeHiddenTocItems": {
       "type": "boolean",
