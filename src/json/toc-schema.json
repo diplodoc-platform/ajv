@@ -542,10 +542,15 @@
           "$ref": "#/definitions/NavigationHeader",
           "description": "Header navigation items. Fields: leftItems (NavigationItem[]), rightItems (NavigationItem[]), iconSize (number).",
           "markdownDescription": "**`NavigationHeader`** Header navigation items.\n\n- `leftItems` **`NavigationItem[]`** — items shown on the left\n- `rightItems` **`NavigationItem[]`** — items shown on the right\n- `iconSize` **`number`** — default icon size in pixels"
+        },
+        "footer": {
+          "$ref": "#/definitions/NavigationFooter",
+          "description": "Footer navigation. Fields: withDivider, view, moreButtonTitle, copyright, logo, menuItems.",
+          "markdownDescription": "**`NavigationFooter`** Page footer configuration.\n\n- `withDivider` **`boolean`** — show top border\n- `view` **`'normal' | 'clear'`** — footer style\n- `moreButtonTitle` **`string`** — expand button text\n- `copyright` **`string`** — copyright text\n- `logo` **`string | NavigationLogo`** — footer logo\n- `menuItems` **`NavigationFooterMenuItem[]`** — footer links"
         }
       },
-      "markdownDescription": "**`Navigation`** Top navigation bar layout.\n\n- `logo` **`NavigationLogo`** — logo in the top-left corner\n- `header` **`NavigationHeader`** — left/right header link groups",
-      "description": "Top nav bar config. Fields: logo (NavigationLogo), header (NavigationHeader)."
+      "markdownDescription": "**`Navigation`** Top navigation bar layout.\n\n- `logo` **`NavigationLogo`** — logo in the top-left corner\n- `header` **`NavigationHeader`** — left/right header link groups\n- `footer` **`NavigationFooter`** — page footer",
+      "description": "Top nav bar config. Fields: logo (NavigationLogo), header (NavigationHeader), footer (NavigationFooter)."
     },
     "NavigationLogo": {
       "type": "object",
@@ -602,6 +607,87 @@
       },
       "markdownDescription": "**`NavigationHeader`** Navigation header item groups.\n\n- `leftItems` **`NavigationItem[]`** — items shown on the left side\n- `rightItems` **`NavigationItem[]`** — items shown on the right side\n- `iconSize` **`number`** — default icon size in pixels",
       "description": "Navigation header. Fields: leftItems (NavigationItem[]), rightItems (NavigationItem[]), iconSize (number)."
+    },
+    "NavigationFooter": {
+      "type": "object",
+      "properties": {
+        "withDivider": {
+          "type": "boolean",
+          "markdownDescription": "**`boolean`** Show a top border above the footer.",
+          "description": "Show a horizontal divider above the footer."
+        },
+        "view": {
+          "type": "string",
+          "enum": ["normal", "clear"],
+          "markdownDescription": "**`'normal' | 'clear'`** Footer style. `normal` — white background with all items. `clear` — transparent, copyright only.",
+          "description": "Footer visual style: normal (full) or clear (copyright only)."
+        },
+        "moreButtonTitle": {
+          "type": "string",
+          "translate": "md",
+          "markdownDescription": "**`string`** Button text to expand collapsed menu items.",
+          "description": "Title of the button that shows more menu items."
+        },
+        "copyright": {
+          "type": "string",
+          "translate": "md",
+          "markdownDescription": "**`string`** Copyright text shown in the footer.",
+          "description": "Copyright text."
+        },
+        "logo": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "url"
+            },
+            {
+              "$ref": "#/definitions/NavigationLogo"
+            }
+          ],
+          "markdownDescription": "**`string | NavigationLogo`** Footer logo — either a URL string or a full NavigationLogo object.",
+          "description": "Footer logo (URL or NavigationLogo object)."
+        },
+        "logoWrapperClassName": {
+          "type": "string",
+          "markdownDescription": "**`string`** CSS class name for the logo wrapper element.",
+          "description": "CSS class for the logo container."
+        },
+        "menuItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NavigationFooterMenuItem"
+          },
+          "markdownDescription": "**`NavigationFooterMenuItem[]`** Links displayed in the footer.",
+          "description": "Footer menu links."
+        }
+      },
+      "markdownDescription": "**`NavigationFooter`** Page footer configuration.\n\n- `withDivider` **`boolean`** — show top border\n- `view` **`'normal' | 'clear'`** — footer style\n- `moreButtonTitle` **`string`** — expand button label\n- `copyright` **`string`** — copyright text\n- `logo` **`string | NavigationLogo`** — logo\n- `menuItems` **`NavigationFooterMenuItem[]`** — links",
+      "description": "Page footer config. Fields: withDivider, view, moreButtonTitle, copyright, logo, logoWrapperClassName, menuItems."
+    },
+    "NavigationFooterMenuItem": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "translate": "md",
+          "markdownDescription": "**`string`** Link display text.",
+          "description": "Menu item display text."
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "markdownDescription": "**`string`** Link destination URL.",
+          "description": "Menu item URL."
+        },
+        "target": {
+          "type": "string",
+          "enum": ["self", "blank"],
+          "markdownDescription": "**`'self' | 'blank'`** Link target — `self` opens in the same tab, `blank` opens in a new tab.",
+          "description": "Link target: self (same tab) or blank (new tab)."
+        }
+      },
+      "markdownDescription": "**`NavigationFooterMenuItem`** A single footer menu link.\n\n- `text` **`string`** — displayed text\n- `url` **`string`** — link destination\n- `target` **`'self' | 'blank'`** — window target",
+      "description": "Footer menu item. Fields: text, url, target."
     },
     "NavigationItems": {
       "type": "array",
@@ -848,7 +934,7 @@
           "description": "Yandex Metrika counter configurations."
         }
       },
-      "additionalProperties": true,
+      "additionalProperties": false,
       "markdownDescription": "**`AnalyticsConfig`** Analytics tracking and cookie consent popup configuration.\n\n- `text` **`string`** — consent popup text (HTML allowed)\n- `buttons` **`AnalyticsButtons`** — popup button configuration\n- `gtm` **`AnalyticsGtmConfig`** — Google Tag Manager\n- `metrika` **`AnalyticsMetrikaConfig[]`** — Yandex Metrika counters"
     },
     "AnalyticsButtons": {
@@ -866,7 +952,7 @@
           "markdownDescription": "**`AnalyticsButton`** Decline optional cookies button."
         }
       },
-      "additionalProperties": true,
+      "additionalProperties": false,
       "markdownDescription": "**`AnalyticsButtons`** Cookie consent popup button configuration."
     },
     "AnalyticsButton": {
@@ -890,7 +976,7 @@
           "description": "Button size (e.g. s, m, l, xl)."
         }
       },
-      "additionalProperties": true,
+      "additionalProperties": false,
       "markdownDescription": "**`AnalyticsButton`** A cookie consent popup button."
     },
     "AnalyticsGtmConfig": {

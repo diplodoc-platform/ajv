@@ -429,6 +429,29 @@ properties:
       **`string | null`** Path to a `theme.yaml` file that overrides brand colors.
 
       - `null` — disable theme processing entirely
+  codeHighlight:
+    type:
+      - object
+      - 'null'
+    properties:
+      light:
+        type: string
+        markdownDescription: '**`string`** Highlight.js theme for the light UI theme.'
+        description: Highlight.js theme for light UI theme.
+      dark:
+        type: string
+        markdownDescription: '**`string`** Highlight.js theme for the dark UI theme.'
+        description: Highlight.js theme for dark UI theme.
+    additionalProperties: false
+    description: >
+      Code highlighting themes for light and dark UI variants.
+      Use any theme name from highlight.js/styles without .css extension.
+      Use "diplodoc" to keep the built-in Diplodoc code highlighting style.
+    markdownDescription: |-
+      **`{light, dark} | null`** Code highlighting themes for light and dark UI variants.
+
+      Use any theme name from `highlight.js/styles` (without the `.css` extension),
+      or `diplodoc` to keep the built-in Diplodoc code highlighting style.
   search:
     oneOf:
       - type: boolean
@@ -585,6 +608,30 @@ properties:
           maxInlineSvgSize: ${1:10K}
           maxHtmlSize: ${2:1M}
           maxAssetSize: ${3:5M}
+  ai:
+    type: object
+    properties:
+      openapiCompanions:
+        oneOf:
+          - type: boolean
+          - type: string
+            enum: ['md']
+        description: >
+          Emit standalone OpenAPI spec companions (*.openapi.json, name derived from the
+          source spec) next to generated OpenAPI leading pages.
+          true — emit in both md2md and md2html;
+          'md' — emit only in md2md (default);
+          false — disabled.
+        markdownDescription: |-
+          **`boolean | 'md'`** Emit standalone OpenAPI spec companions (`*.openapi.json`)
+          next to generated OpenAPI leading pages.
+
+          - `true` — emit in both md2md and md2html
+          - `'md'` — emit only in md2md (default)
+          - `false` — disabled
+    additionalProperties: false
+    description: AI-related build options.
+    markdownDescription: '**`{openapiCompanions}`** AI-related build options.'
   removeHiddenTocItems:
     type: boolean
     description: Strip hidden items from the table of contents.
