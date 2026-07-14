@@ -681,12 +681,12 @@
         },
         "target": {
           "type": "string",
-          "enum": ["self", "blank"],
-          "markdownDescription": "**`'self' | 'blank'`** Link target — `self` opens in the same tab, `blank` opens in a new tab.",
-          "description": "Link target: self (same tab) or blank (new tab)."
+          "enum": ["_self", "_blank", "_parent", "_top"],
+          "markdownDescription": "**`'_self' | '_blank' | '_parent' | '_top'`** Standard HTML link target attribute.",
+          "description": "Link target: _self (same tab), _blank (new tab), _parent, _top."
         }
       },
-      "markdownDescription": "**`NavigationFooterMenuItem`** A single footer menu link.\n\n- `text` **`string`** — displayed text\n- `url` **`string`** — link destination\n- `target` **`'self' | 'blank'`** — window target",
+      "markdownDescription": "**`NavigationFooterMenuItem`** A single footer menu link.\n\n- `text` **`string`** — displayed text\n- `url` **`string`** — link destination\n- `target` **`'_self' | '_blank' | '_parent' | '_top'`** — window target",
       "description": "Footer menu item. Fields: text, url, target."
     },
     "NavigationItems": {
