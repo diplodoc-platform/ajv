@@ -528,6 +528,43 @@ properties:
     type: boolean
     description: Include PDF start pages in the output for debugging.
     markdownDescription: '**`boolean`** Include PDF start/end pages in the HTML output for debugging page breaks.'
+  llms:
+    oneOf:
+      - type: boolean
+        markdownDescription: '**`boolean`**'
+      - type: object
+        properties:
+          enabled:
+            oneOf:
+              - type: boolean
+                markdownDescription: '**`boolean`**'
+              - type: string
+                enum:
+                  - md
+                markdownDescription: "**`'md'`**"
+            description: Enable or disable LLMS files generation.
+            markdownDescription: "**`boolean | 'md'`** Enable (`true`/`false`) or configure output format (`'md'`) for LLMS files generation."
+          description:
+            type: string
+            description: Custom description metadata for LLMS indexing.
+            markdownDescription: '**`string`** Custom description metadata for LLMS indexing.'
+        additionalProperties: false
+        markdownDescription: '**`{enabled, description}`**'
+    description: Configure LLMS (Large Language Model Structure) file generation.
+    markdownDescription: |-
+      **`boolean | object`** Configure LLMS (Large Language Model Structure) files (`llms.txt` / `llms-full.txt`) generation.
+
+      - `false` — disable LLMS generation entirely
+      - Object — fine-grained control over format and indexing metadata
+    defaultSnippets:
+      - label: Standard LLMS setup
+        body:
+          enabled: true
+          description: ${1:Project documentation for LLM ingestion.}
+      - label: Markdown format LLMS setup
+        body:
+          enabled: md
+          description: ${1:Project documentation for LLM ingestion.}
   preprocess:
     type: object
     properties:
