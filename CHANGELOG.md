@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1](https://github.com/diplodoc-platform/ajv/compare/v0.1.0...v0.1.1) (2026-07-14)
+
+
+### Bug Fixes
+
+* add llms to yfm-schema ([#27](https://github.com/diplodoc-platform/ajv/issues/27)) ([a0123f3](https://github.com/diplodoc-platform/ajv/commit/a0123f39ef58c44ae21d2c61fbff8f55f53f3843))
+* fixed target type ([#28](https://github.com/diplodoc-platform/ajv/issues/28)) ([5b7c045](https://github.com/diplodoc-platform/ajv/commit/5b7c04594cb0b25bea1a1e05ba5c88b83a32b47a))
+
 ## [0.1.0](https://github.com/diplodoc-platform/ajv/compare/v0.0.7...v0.1.0) (2026-07-13)
 
 
