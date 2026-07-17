@@ -1,6 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://diplodoc.com/schemas/toc/draft-01/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://diplodoc.com/schemas/toc/draft-01/schema",
   "title": "Diplodoc (toc.yaml)",
   "type": "object",
   "properties": {
@@ -427,6 +427,7 @@
     },
     "OpenApiIncluder": {
       "type": "object",
+      "additionalProperties": false,
       "required": ["input"],
       "properties": {
         "input": {
@@ -444,6 +445,7 @@
         },
         "sandbox": {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "tabName": {
               "type": "string",
@@ -460,6 +462,7 @@
         },
         "leadingPage": {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "name": {
               "type": "string",
@@ -472,6 +475,7 @@
             },
             "spec": {
               "type": "object",
+              "additionalProperties": false,
               "properties": {
                 "renderMode": {
                   "type": "string",
@@ -518,6 +522,7 @@
     },
     "OpenApiIncluderFilter": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "endpoint": {
           "type": "string",
@@ -532,6 +537,7 @@
     },
     "Navigation": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "logo": {
           "$ref": "#/definitions/NavigationLogo",
@@ -554,6 +560,7 @@
     },
     "NavigationLogo": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "text": {
           "type": "string",
@@ -588,6 +595,7 @@
     },
     "NavigationHeader": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "leftItems": {
           "$ref": "#/definitions/NavigationItems",
@@ -610,6 +618,7 @@
     },
     "NavigationFooter": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "withDivider": {
           "type": "boolean",
@@ -666,6 +675,7 @@
     },
     "NavigationFooterMenuItem": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "text": {
           "type": "string",
@@ -698,6 +708,7 @@
     },
     "NavigationItem": {
       "type": "object",
+      "unevaluatedProperties": false,
       "required": ["type"],
       "properties": {
         "type": {
@@ -1093,6 +1104,7 @@
     },
     "AnalyticsEvent": {
       "type": "object",
+      "additionalProperties": false,
       "required": ["name"],
       "properties": {
         "name": {
@@ -1105,6 +1117,7 @@
         },
         "counters": {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "include": {
               "type": "array",

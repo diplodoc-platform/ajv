@@ -1,5 +1,5 @@
-$schema: http://json-schema.org/draft-07/schema#
-$id: https://diplodoc.com/schemas/toc/draft-01/schema#
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://diplodoc.com/schemas/toc/draft-01/schema
 title: Diplodoc (toc.yaml)
 type: object
 properties:
@@ -369,6 +369,7 @@ definitions:
     markdownDescription: '**`{name}`**'
   OpenApiIncluder:
     type: object
+    additionalProperties: false
     required:
       - input
     properties:
@@ -383,6 +384,7 @@ definitions:
         $ref: '#/definitions/OpenApiIncluderFilter'
       sandbox:
         type: object
+        additionalProperties: false
         properties:
           tabName:
             type: string
@@ -395,6 +397,7 @@ definitions:
         markdownDescription: '**`{tabName, host}`**'
       leadingPage:
         type: object
+        additionalProperties: false
         properties:
           name:
             type: string
@@ -407,6 +410,7 @@ definitions:
             markdownDescription: "**`'section' | 'leaf'`**"
           spec:
             type: object
+            additionalProperties: false
             properties:
               renderMode:
                 type: string
@@ -441,6 +445,7 @@ definitions:
     markdownDescription: '**`{hidden, name, path, alias}`**'
   OpenApiIncluderFilter:
     type: object
+    additionalProperties: false
     properties:
       endpoint:
         type: string
@@ -451,6 +456,7 @@ definitions:
     markdownDescription: '**`{endpoint, tag}`**'
   Navigation:
     type: object
+    additionalProperties: false
     properties:
       logo:
         $ref: '#/definitions/NavigationLogo'
@@ -492,6 +498,7 @@ definitions:
     description: 'Top nav bar config. Fields: logo (NavigationLogo), header (NavigationHeader), footer (NavigationFooter).'
   NavigationLogo:
     type: object
+    additionalProperties: false
     properties:
       text:
         type: string
@@ -526,6 +533,7 @@ definitions:
     description: 'Navigation bar logo. Fields: text, url, urlTitle, icon, dark (NavigationLogo), light (NavigationLogo).'
   NavigationHeader:
     type: object
+    additionalProperties: false
     properties:
       leftItems:
         $ref: '#/definitions/NavigationItems'
@@ -548,6 +556,7 @@ definitions:
     description: 'Navigation header. Fields: leftItems (NavigationItem[]), rightItems (NavigationItem[]), iconSize (number).'
   NavigationFooter:
     type: object
+    additionalProperties: false
     properties:
       withDivider:
         type: boolean
@@ -599,6 +608,7 @@ definitions:
     description: 'Page footer config. Fields: withDivider, view, moreButtonTitle, copyright, logo, logoWrapperClassName, menuItems.'
   NavigationFooterMenuItem:
     type: object
+    additionalProperties: false
     properties:
       text:
         type: string
@@ -633,6 +643,7 @@ definitions:
     markdownDescription: '**`NavigationItem[]`**'
   NavigationItem:
     type: object
+    unevaluatedProperties: false
     required:
       - type
     properties:
@@ -974,6 +985,7 @@ definitions:
     description: Yandex Metrika counter configuration.
   AnalyticsEvent:
     type: object
+    additionalProperties: false
     required:
       - name
     properties:
@@ -985,6 +997,7 @@ definitions:
         markdownDescription: '**`string`**'
       counters:
         type: object
+        additionalProperties: false
         properties:
           include:
             type: array
