@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/diplodoc-platform/ajv/compare/v0.1.1...v0.1.2) (2026-07-21)
+
+
+### Bug Fixes
+
+* Add llmsFullMaxSize DOCSTOOLS-6204 ([b3748bc](https://github.com/diplodoc-platform/ajv/commit/b3748bcc4948792b17f456a2c8702a8c55c9abfc))
+
 ## [0.1.1](https://github.com/diplodoc-platform/ajv/compare/v0.1.0...v0.1.1) (2026-07-14)
 
 
