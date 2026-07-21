@@ -590,14 +590,19 @@
               "type": "string",
               "description": "Custom description metadata for LLMS indexing.",
               "markdownDescription": "**`string`** Custom description metadata for LLMS indexing."
+            },
+            "llmsFullMaxSize": {
+              "$ref": "#/definitions/FileSize",
+              "description": "Maximum size of llms-full.txt. Article ingestion stops when the limit is reached (YFM022 info). Default: 4M.",
+              "markdownDescription": "**`string | integer`** Maximum size of `llms-full.txt`. When the accumulated content exceeds this limit, article ingestion stops and `YFM022` is logged as info. Default: `4M`."
             }
           },
           "additionalProperties": false,
-          "markdownDescription": "**`{enabled, description}`**"
+          "markdownDescription": "**`{enabled, description, llmsFullMaxSize}`**"
         }
       ],
       "description": "Configure LLMS (Large Language Model Structure) file generation.",
-      "markdownDescription": "**`boolean | object`** Configure LLMS (Large Language Model Structure) files (`llms.txt` / `llms-full.txt`) generation.\n\n- `false` — disable LLMS generation entirely\n- Object — fine-grained control over format and indexing metadata",
+      "markdownDescription": "**`boolean | object`** Configure LLMS (Large Language Model Structure) files (`llms.txt` / `llms-full.txt`) generation.\n\n- `false` — disable LLMS generation entirely\n- Object — fine-grained control over format and indexing metadata\n  - `llmsFullMaxSize` — max size of `llms-full.txt` (default `4M`)",
       "defaultSnippets": [
         {
           "label": "Standard LLMS setup",
