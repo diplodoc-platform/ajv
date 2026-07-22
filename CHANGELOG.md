@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/diplodoc-platform/ajv/compare/v0.1.2...v0.1.3) (2026-07-22)
+
+
+### Bug Fixes
+
+* fixed leading-schema ([#34](https://github.com/diplodoc-platform/ajv/issues/34)) ([113852d](https://github.com/diplodoc-platform/ajv/commit/113852d5e5e32e403dae330a344fd800682fa4a1))
+
 ## [0.1.2](https://github.com/diplodoc-platform/ajv/compare/v0.1.1...v0.1.2) (2026-07-21)
 
 
