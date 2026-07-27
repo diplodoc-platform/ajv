@@ -278,6 +278,8 @@ definitions:
         description: Relative path to the target .md file or URL.
         markdownDescription: '**`string`** Relative path to the `.md` page or an external URL.'
         type: string
+      target:
+        $ref: '#/definitions/NavigationLinkTarget'
       include:
         description: Include directive to merge another toc.yaml.
         markdownDescription: |-
@@ -308,6 +310,8 @@ definitions:
         type: string
         markdownDescription: '**`string`** Relative path to the `.md` page (e.g. `guide/intro.md`) or an external URL.'
         description: Relative path to the target .md file or URL.
+      target:
+        $ref: '#/definitions/NavigationLinkTarget'
     not:
       required:
         - include
