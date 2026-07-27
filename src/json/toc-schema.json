@@ -323,6 +323,9 @@
           "markdownDescription": "**`string`** Relative path to the `.md` page or an external URL.",
           "type": "string"
         },
+        "target": {
+          "$ref": "#/definitions/NavigationLinkTarget"
+        },
         "include": {
           "description": "Include directive to merge another toc.yaml.",
           "markdownDescription": "**`Include`** Directive to include another `toc.yaml` into this navigation tree.\n\n```yaml\n- include:\n    path: ../shared/toc.yaml\n    mode: merge # link | merge | root_merge\n```"
@@ -351,6 +354,9 @@
           "type": "string",
           "markdownDescription": "**`string`** Relative path to the `.md` page (e.g. `guide/intro.md`) or an external URL.",
           "description": "Relative path to the target .md file or URL."
+        },
+        "target": {
+          "$ref": "#/definitions/NavigationLinkTarget"
         }
       },
       "not": {
