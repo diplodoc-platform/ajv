@@ -3068,9 +3068,13 @@
                         {
                           "type": "object",
                           "additionalProperties": false,
-                          "required": ["data"],
+                          "required": [],
                           "properties": {
                             "data": {
+                              "type": "string",
+                              "markdownDescription": "**`string`**"
+                            },
+                            "url": {
                               "type": "string",
                               "markdownDescription": "**`string`**"
                             },
@@ -3085,7 +3089,7 @@
                               "translate": "md"
                             }
                           },
-                          "markdownDescription": "**`{data, position, alt}`**"
+                          "markdownDescription": "**`{url, position, alt}`**"
                         }
                       ]
                     },
@@ -3200,6 +3204,11 @@
                       "type": "string",
                       "enum": ["auto", "max"],
                       "markdownDescription": "**`'auto' | 'max'`**"
+                    },
+                    "textSize": {
+                      "type": "string",
+                      "enum": ["xs", "s", "sm", "m", "l"],
+                      "markdownDescription": "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     }
                   },
                   "if": {
@@ -4311,9 +4320,13 @@
                         {
                           "type": "object",
                           "additionalProperties": false,
-                          "required": ["data"],
+                          "required": [],
                           "properties": {
                             "data": {
+                              "type": "string",
+                              "markdownDescription": "**`string`**"
+                            },
+                            "url": {
                               "type": "string",
                               "markdownDescription": "**`string`**"
                             },
@@ -4328,7 +4341,7 @@
                               "translate": "md"
                             }
                           },
-                          "markdownDescription": "**`{data, position, alt}`**"
+                          "markdownDescription": "**`{url, position, alt}`**"
                         }
                       ]
                     },
@@ -8769,9 +8782,13 @@
                         {
                           "type": "object",
                           "additionalProperties": false,
-                          "required": ["data"],
+                          "required": [],
                           "properties": {
                             "data": {
+                              "type": "string",
+                              "markdownDescription": "**`string`**"
+                            },
+                            "url": {
                               "type": "string",
                               "markdownDescription": "**`string`**"
                             },
@@ -8786,7 +8803,7 @@
                               "translate": "md"
                             }
                           },
-                          "markdownDescription": "**`{data, position, alt}`**"
+                          "markdownDescription": "**`{url, position, alt}`**"
                         }
                       ]
                     },
@@ -8901,6 +8918,11 @@
                       "type": "string",
                       "enum": ["auto", "max"],
                       "markdownDescription": "**`'auto' | 'max'`**"
+                    },
+                    "textSize": {
+                      "type": "string",
+                      "enum": ["xs", "s", "sm", "m", "l"],
+                      "markdownDescription": "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     }
                   },
                   "if": {
@@ -12650,9 +12672,13 @@
                         {
                           "type": "object",
                           "additionalProperties": false,
-                          "required": ["data"],
+                          "required": [],
                           "properties": {
                             "data": {
+                              "type": "string",
+                              "markdownDescription": "**`string`**"
+                            },
+                            "url": {
                               "type": "string",
                               "markdownDescription": "**`string`**"
                             },
@@ -12667,7 +12693,7 @@
                               "translate": "md"
                             }
                           },
-                          "markdownDescription": "**`{data, position, alt}`**"
+                          "markdownDescription": "**`{url, position, alt}`**"
                         }
                       ]
                     },
@@ -12782,6 +12808,11 @@
                       "type": "string",
                       "enum": ["auto", "max"],
                       "markdownDescription": "**`'auto' | 'max'`**"
+                    },
+                    "textSize": {
+                      "type": "string",
+                      "enum": ["xs", "s", "sm", "m", "l"],
+                      "markdownDescription": "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     }
                   },
                   "if": {
@@ -14002,9 +14033,13 @@
                         {
                           "type": "object",
                           "additionalProperties": false,
-                          "required": ["data"],
+                          "required": [],
                           "properties": {
                             "data": {
+                              "type": "string",
+                              "markdownDescription": "**`string`**"
+                            },
+                            "url": {
                               "type": "string",
                               "markdownDescription": "**`string`**"
                             },
@@ -14019,7 +14054,7 @@
                               "translate": "md"
                             }
                           },
-                          "markdownDescription": "**`{data, position, alt}`**"
+                          "markdownDescription": "**`{url, position, alt}`**"
                         }
                       ]
                     },
@@ -31116,9 +31151,13 @@
                         {
                           "type": "object",
                           "additionalProperties": false,
-                          "required": ["data"],
+                          "required": [],
                           "properties": {
                             "data": {
+                              "type": "string",
+                              "markdownDescription": "**`string`**"
+                            },
+                            "url": {
                               "type": "string",
                               "markdownDescription": "**`string`**"
                             },
@@ -31133,7 +31172,7 @@
                               "translate": "md"
                             }
                           },
-                          "markdownDescription": "**`{data, position, alt}`**"
+                          "markdownDescription": "**`{url, position, alt}`**"
                         }
                       ]
                     },
@@ -33875,9 +33914,13 @@
                         {
                           "type": "object",
                           "additionalProperties": false,
-                          "required": ["data"],
+                          "required": [],
                           "properties": {
                             "data": {
+                              "type": "string",
+                              "markdownDescription": "**`string`**"
+                            },
+                            "url": {
                               "type": "string",
                               "markdownDescription": "**`string`**"
                             },
@@ -33892,7 +33935,7 @@
                               "translate": "md"
                             }
                           },
-                          "markdownDescription": "**`{data, position, alt}`**"
+                          "markdownDescription": "**`{url, position, alt}`**"
                         }
                       ]
                     },
@@ -34007,6 +34050,11 @@
                       "type": "string",
                       "enum": ["auto", "max"],
                       "markdownDescription": "**`'auto' | 'max'`**"
+                    },
+                    "textSize": {
+                      "type": "string",
+                      "enum": ["xs", "s", "sm", "m", "l"],
+                      "markdownDescription": "**`'xs' | 's' | 'sm' | 'm' | 'l'`**"
                     }
                   },
                   "if": {
@@ -34740,7 +34788,15 @@
                 "markdownDescription": "**`{when, title, text, icon}[]`**"
               },
               "url": {
-                "type": "string",
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "markdownDescription": "**`string`**"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
                 "markdownDescription": "**`string`**"
               },
               "urlTitle": {
@@ -35137,9 +35193,13 @@
                         {
                           "type": "object",
                           "additionalProperties": false,
-                          "required": ["data"],
+                          "required": [],
                           "properties": {
                             "data": {
+                              "type": "string",
+                              "markdownDescription": "**`string`**"
+                            },
+                            "url": {
                               "type": "string",
                               "markdownDescription": "**`string`**"
                             },
@@ -35154,7 +35214,7 @@
                               "translate": "md"
                             }
                           },
-                          "markdownDescription": "**`{data, position, alt}`**"
+                          "markdownDescription": "**`{url, position, alt}`**"
                         }
                       ]
                     },
@@ -35770,9 +35830,13 @@
                         {
                           "type": "object",
                           "additionalProperties": false,
-                          "required": ["data"],
+                          "required": [],
                           "properties": {
                             "data": {
+                              "type": "string",
+                              "markdownDescription": "**`string`**"
+                            },
+                            "url": {
                               "type": "string",
                               "markdownDescription": "**`string`**"
                             },
@@ -35787,7 +35851,7 @@
                               "translate": "md"
                             }
                           },
-                          "markdownDescription": "**`{data, position, alt}`**"
+                          "markdownDescription": "**`{url, position, alt}`**"
                         }
                       ]
                     },
