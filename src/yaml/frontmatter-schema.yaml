@@ -82,13 +82,17 @@ properties:
         type: boolean
         description: Show/hide feedback controls.
         markdownDescription: '**`boolean`** Show or hide the like / dislike feedback controls.'
+      gallery:
+        type: boolean
+        description: Enable/disable opening images in the gallery on this page.
+        markdownDescription: '**`boolean`** Enable (`true`, default) or disable (`false`) opening images in the gallery viewer on this page.'
       favicon-src:
         type: string
         description: Custom favicon URL for this page.
         markdownDescription: '**`string`** URL to a custom favicon shown in the browser tab for this page only.'
     additionalProperties: false
     description: Per-page UI overrides (takes precedence over .yfm config).
-    markdownDescription: '**`{toc, toc-header, search, feedback, favicon-src}`** Per-page UI element visibility overrides. Takes precedence over the global `.yfm` config.'
+    markdownDescription: '**`{toc, toc-header, search, feedback, gallery, favicon-src}`** Per-page UI element visibility overrides. Takes precedence over the global `.yfm` config.'
     defaultSnippets:
       - label: Configure page UI
         body:

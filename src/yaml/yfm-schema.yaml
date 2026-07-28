@@ -374,6 +374,10 @@ properties:
         type: boolean
         description: Show feedback controls (likes / dislikes).
         markdownDescription: '**`boolean`** Show (`true`) or hide (`false`) the like/dislike feedback widget globally.'
+      gallery:
+        type: boolean
+        description: Enable opening images in the gallery.
+        markdownDescription: '**`boolean`** Enable (`true`, default) or disable (`false`) opening images in the gallery viewer globally.'
       favicon-src:
         type: string
         description: URL to a custom favicon.
@@ -388,6 +392,7 @@ properties:
       - `toc-header` — show/hide the TOC header section
       - `search` — show/hide the search input
       - `feedback` — show/hide like/dislike controls
+      - `gallery` — enable/disable opening images in the gallery
       - `favicon-src` — custom favicon URL
   feedbackUrl:
     type: string
