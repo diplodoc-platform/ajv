@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.4](https://github.com/diplodoc-platform/ajv/compare/v0.1.3...v0.1.4) (2026-07-28)
+
+
+### Bug Fixes
+
+* add target ([#37](https://github.com/diplodoc-platform/ajv/issues/37)) ([7835b24](https://github.com/diplodoc-platform/ajv/commit/7835b24fe673b739ad7a950d6a0824dfc9fb0656))
+* fixed pc schema ([#39](https://github.com/diplodoc-platform/ajv/issues/39)) ([02bd26a](https://github.com/diplodoc-platform/ajv/commit/02bd26a4854f9a8dcef871cd03e720fd06e24f5d))
+
 ## [0.1.3](https://github.com/diplodoc-platform/ajv/compare/v0.1.2...v0.1.3) (2026-07-22)
 
 
