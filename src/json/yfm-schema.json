@@ -600,10 +600,16 @@
               "$ref": "#/definitions/FileSize",
               "description": "Maximum size of llms-full.txt. Article ingestion stops when the limit is reached (YFM022 info). Default: 4M.",
               "markdownDescription": "**`string | integer`** Maximum size of `llms-full.txt`. When the accumulated content exceeds this limit, article ingestion stops and `YFM022` is logged as info. Default: `4M`."
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "Override URL for llms.txt used in md companion AI hints.",
+              "markdownDescription": "**`string (uri)`** Override URL for `llms.txt` used in md companion AI hints. When set, md companions link to this URL instead of the generated `llms.txt`."
             }
           },
           "additionalProperties": false,
-          "markdownDescription": "**`{enabled, description, llmsFullMaxSize}`**"
+          "markdownDescription": "**`{enabled, description, llmsFullMaxSize, url}`**"
         }
       ],
       "description": "Configure LLMS (Large Language Model Structure) file generation.",
