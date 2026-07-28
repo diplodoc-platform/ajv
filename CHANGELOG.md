@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/diplodoc-platform/ajv/compare/v0.1.4...v0.1.5) (2026-07-28)
+
+
+### Bug Fixes
+
+* add gallery to properties for interface ([#36](https://github.com/diplodoc-platform/ajv/issues/36)) ([975eba4](https://github.com/diplodoc-platform/ajv/commit/975eba4fcb7aa80b36e1fff68af8d433de3e3202))
+
 ## [0.1.4](https://github.com/diplodoc-platform/ajv/compare/v0.1.3...v0.1.4) (2026-07-28)
 
 
