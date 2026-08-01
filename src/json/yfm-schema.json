@@ -775,6 +775,11 @@
       "type": "boolean",
       "markdownDescription": "**`boolean`**"
     },
+    "aiChat": {
+      "$ref": "#/definitions/AiChatConfig",
+      "description": "AI chat widget configuration (internal docs-viewer).",
+      "markdownDescription": "**`AiChatConfig`** AI chat widget configuration (internal docs-viewer).\n\n- `requestExamples`**`string[] | false | object`** — example prompts, optionally per-language map\n- `soTags`**`string | string[]`** — Stack Overflow tags attached to the chat context\n- `stIssues`**`AiChatStIssuesSlice[]`** — Startrek tracker slices attached to the chat context"
+    },
     "analytics": {
       "$ref": "#/definitions/AnalyticsConfig",
       "markdownDescription": "**`AnalyticsConfig`** Web analytics configuration.\n\n- `gtm` **`AnalyticsConfig`** — Google Tag Manager (`id: string`, `mode: 'base' | 'notification'`)",
@@ -1323,6 +1328,384 @@
       "additionalProperties": true,
       "markdownDescription": "**`SearchConfig`** Documentation search configuration.\n\n- `enabled` **`boolean`** — enable/disable search\n- `provider` **`'local' | 'algolia'`** — search backend\n- `tolerance` **`0 | 1 | 2`** — wildcard tolerance (local only)\n- `confidence` **`'phrased' | 'sparsed'`** — scoring strategy (local only)\n- `appId` / `apiKey` / `indexName` — Algolia credentials",
       "description": "Search config. Fields: enabled, provider (local|algolia), tolerance (0-2), confidence (phrased|sparsed), and Algolia-specific fields."
+    },
+    "AiChatStIssuesSlice": {
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "queue": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Tracker queue keys (e.g. DOCSTOOLS).",
+          "markdownDescription": "**`string | string[]`** Tracker queue keys (e.g. `DOCSTOOLS`)."
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": ["new", "open", "inProgress", "needInfo", "resolved", "closed"]
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["new", "open", "inProgress", "needInfo", "resolved", "closed"]
+              }
+            }
+          ],
+          "description": "Issue status keys (Startrek global statuses).",
+          "markdownDescription": "**`'new' | 'open' | 'inProgress' | 'needInfo' | 'resolved' | 'closed'`** (single value or array) Issue status keys."
+        },
+        "tag": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Issue tags.",
+          "markdownDescription": "**`string | string[]`** Issue tags."
+        },
+        "component": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Issue components.",
+          "markdownDescription": "**`string | string[]`** Issue components."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": ["bug", "task", "story", "epic", "featureRequest"]
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["bug", "task", "story", "epic", "featureRequest"]
+              }
+            }
+          ],
+          "description": "Issue type keys (Startrek global issue types).",
+          "markdownDescription": "**`'bug' | 'task' | 'story' | 'epic' | 'featureRequest'`** (single value or array) Issue type keys."
+        },
+        "resolution": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": ["fixed", "wontFix", "duplicate", "cantReproduce", "later"]
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["fixed", "wontFix", "duplicate", "cantReproduce", "later"]
+              }
+            }
+          ],
+          "description": "Issue resolution keys (Startrek global resolutions).",
+          "markdownDescription": "**`'fixed' | 'wontFix' | 'duplicate' | 'cantReproduce' | 'later'`** (single value or array) Issue resolution keys."
+        },
+        "assignee": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Assignee logins.",
+          "markdownDescription": "**`string | string[]`** Assignee logins."
+        },
+        "author": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Author logins.",
+          "markdownDescription": "**`string | string[]`** Author logins."
+        },
+        "follower": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Follower logins.",
+          "markdownDescription": "**`string | string[]`** Follower logins."
+        },
+        "responsible": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Responsible logins.",
+          "markdownDescription": "**`string | string[]`** Responsible logins."
+        },
+        "owner": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Owner logins.",
+          "markdownDescription": "**`string | string[]`** Owner logins."
+        },
+        "project": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Tracker projects.",
+          "markdownDescription": "**`string | string[]`** Tracker projects."
+        },
+        "object": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Issue objects.",
+          "markdownDescription": "**`string | string[]`** Issue objects."
+        },
+        "business_unit": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Business units.",
+          "markdownDescription": "**`string | string[]`** Business units."
+        },
+        "created_at": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Creation date filters.",
+          "markdownDescription": "**`string | string[]`** Creation date filters."
+        },
+        "modified_at": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Modification date filters.",
+          "markdownDescription": "**`string | string[]`** Modification date filters."
+        },
+        "end": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Deadline filters.",
+          "markdownDescription": "**`string | string[]`** Deadline filters."
+        },
+        "is_author_robot": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": ["true", "false"]
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["true", "false"]
+              }
+            }
+          ],
+          "description": "Filter by author being a robot.",
+          "markdownDescription": "**`'true' | 'false'`** (single value or array) Filter by author being a robot."
+        },
+        "is_assignee_robot": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": ["true", "false"]
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["true", "false"]
+              }
+            }
+          ],
+          "description": "Filter by assignee being a robot.",
+          "markdownDescription": "**`'true' | 'false'`** (single value or array) Filter by assignee being a robot."
+        }
+      },
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "description": "One tracker slice for the AI chat context. Keys are Startrek search facet names (see the tracker layer in the intrasearch facets settings), values are a single string or an array of strings. Multiple slices are merged into a single chat context (values are unioned per facet).",
+      "markdownDescription": "**`object`** One tracker slice for the AI chat context.\n\nKeys are Startrek search facet names (`queue`, `status`, `tag`, `component`, `type`, …),\nvalues are `string | string[]`. Multiple slices are merged into a single\n`doc + tracker` chat context (values are unioned per facet)."
+    },
+    "AiChatConfig": {
+      "type": "object",
+      "properties": {
+        "requestExamples": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "Example prompts shown in the chat input. Array of strings, false to disable, or a map of language codes to arrays/false (use \"default\" key for fallback).",
+          "markdownDescription": "**`string[] | false | object`** Example prompts shown in the chat input. Per-language map uses language codes as keys and `default` as fallback."
+        },
+        "soTags": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Stack Overflow tags added to the chat context (adds a \"docs + Stack Overflow\" scope).",
+          "markdownDescription": "**`string | string[]`** Stack Overflow tags added to the chat context (adds a `docs + Stack Overflow` scope)."
+        },
+        "stIssues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AiChatStIssuesSlice"
+          },
+          "description": "Tracker slices added to the chat context (adds a \"docs + tracker\" scope). All slices are merged into one context.",
+          "markdownDescription": "**`AiChatStIssuesSlice[]`** Tracker slices added to the chat context (adds a `docs + tracker` scope). All slices are merged into one context."
+        }
+      },
+      "additionalProperties": false,
+      "description": "AI chat widget config (internal docs-viewer). Fields: requestExamples, soTags, stIssues.",
+      "markdownDescription": "**`AiChatConfig`** AI chat widget configuration (internal docs-viewer).\n\n- `requestExamples`**`string[] | false | object`** — example prompts, optionally per-language map\n- `soTags`**`string | string[]`** — Stack Overflow tags attached to the chat context\n- `stIssues`**`AiChatStIssuesSlice[]`** — Startrek tracker slices attached to the chat context"
     },
     "NeuroExpertConfig": {
       "type": "object",

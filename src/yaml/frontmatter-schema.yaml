@@ -217,6 +217,222 @@ properties:
       **`{noIndex}`** Per-page docs-viewer overrides.
 
       - `noIndex` **`boolean`** — disallow external search engine indexing
+  aiChat:
+    type: object
+    properties:
+      requestExamples:
+        oneOf:
+          - type: array
+            items:
+              type: string
+          - type: boolean
+          - type: object
+            additionalProperties:
+              oneOf:
+                - type: array
+                  items:
+                    type: string
+                - type: boolean
+        description: Example prompts shown in the chat input on this page. Array of strings, false to disable, or a map of language codes to arrays/false.
+        markdownDescription: '**`string[] | false | object`** Example prompts shown in the chat input on this page.'
+      soTags:
+        oneOf:
+          - type: string
+          - type: array
+            items:
+              type: string
+        description: Stack Overflow tags added to the chat context on this page.
+        markdownDescription: '**`string | string[]`** Stack Overflow tags added to the chat context on this page.'
+      stIssues:
+        type: array
+        items:
+          type: object
+          minProperties: 1
+          properties:
+            queue:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Tracker queue keys (e.g. DOCSTOOLS).
+              markdownDescription: '**`string | string[]`** Tracker queue keys (e.g. `DOCSTOOLS`).'
+            status:
+              oneOf:
+                - type: string
+                  enum: [new, open, inProgress, needInfo, resolved, closed]
+                - type: array
+                  items:
+                    type: string
+                    enum: [new, open, inProgress, needInfo, resolved, closed]
+              description: Issue status keys (Startrek global statuses).
+              markdownDescription: "**`'new' | 'open' | 'inProgress' | 'needInfo' | 'resolved' | 'closed'`** (single value or array) Issue status keys."
+            tag:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Issue tags.
+              markdownDescription: '**`string | string[]`** Issue tags.'
+            component:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Issue components.
+              markdownDescription: '**`string | string[]`** Issue components.'
+            type:
+              oneOf:
+                - type: string
+                  enum: [bug, task, story, epic, featureRequest]
+                - type: array
+                  items:
+                    type: string
+                    enum: [bug, task, story, epic, featureRequest]
+              description: Issue type keys (Startrek global issue types).
+              markdownDescription: "**`'bug' | 'task' | 'story' | 'epic' | 'featureRequest'`** (single value or array) Issue type keys."
+            resolution:
+              oneOf:
+                - type: string
+                  enum: [fixed, wontFix, duplicate, cantReproduce, later]
+                - type: array
+                  items:
+                    type: string
+                    enum: [fixed, wontFix, duplicate, cantReproduce, later]
+              description: Issue resolution keys (Startrek global resolutions).
+              markdownDescription: "**`'fixed' | 'wontFix' | 'duplicate' | 'cantReproduce' | 'later'`** (single value or array) Issue resolution keys."
+            assignee:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Assignee logins.
+              markdownDescription: '**`string | string[]`** Assignee logins.'
+            author:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Author logins.
+              markdownDescription: '**`string | string[]`** Author logins.'
+            follower:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Follower logins.
+              markdownDescription: '**`string | string[]`** Follower logins.'
+            responsible:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Responsible logins.
+              markdownDescription: '**`string | string[]`** Responsible logins.'
+            owner:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Owner logins.
+              markdownDescription: '**`string | string[]`** Owner logins.'
+            project:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Tracker projects.
+              markdownDescription: '**`string | string[]`** Tracker projects.'
+            object:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Issue objects.
+              markdownDescription: '**`string | string[]`** Issue objects.'
+            business_unit:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Business units.
+              markdownDescription: '**`string | string[]`** Business units.'
+            created_at:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Creation date filters.
+              markdownDescription: '**`string | string[]`** Creation date filters.'
+            modified_at:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Modification date filters.
+              markdownDescription: '**`string | string[]`** Modification date filters.'
+            end:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              description: Deadline filters.
+              markdownDescription: '**`string | string[]`** Deadline filters.'
+            is_author_robot:
+              oneOf:
+                - type: string
+                  enum: ['true', 'false']
+                - type: array
+                  items:
+                    type: string
+                    enum: ['true', 'false']
+              description: Filter by author being a robot.
+              markdownDescription: "**`'true' | 'false'`** (single value or array) Filter by author being a robot."
+            is_assignee_robot:
+              oneOf:
+                - type: string
+                  enum: ['true', 'false']
+                - type: array
+                  items:
+                    type: string
+                    enum: ['true', 'false']
+              description: Filter by assignee being a robot.
+              markdownDescription: "**`'true' | 'false'`** (single value or array) Filter by assignee being a robot."
+          additionalProperties:
+            oneOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+          description: >-
+            One tracker slice. Keys are Startrek search facet names (queue,
+            status, tag, component, type, …), values are a single string or an
+            array of strings. Multiple slices are merged into a single chat
+            context (values are unioned per facet).
+          markdownDescription: '**`object`** One tracker slice: facet name (`queue`, `status`, `tag`, `component`, `type`, …) → `string | string[]`. Multiple slices are merged into one `doc + tracker` context.'
+        description: Tracker slices added to the chat context on this page. All slices are merged into one context.
+        markdownDescription: '**`object[]`** Tracker slices added to the chat context on this page (adds a `doc + tracker` scope). All slices are merged into one context.'
+    additionalProperties: false
+    description: Per-page AI chat widget overrides (internal docs-viewer).
+    markdownDescription: |-
+      **`{requestExamples, soTags, stIssues}`** Per-page AI chat widget overrides (internal docs-viewer).
+
+      - `requestExamples` **`string[] | false | object`** — example prompts
+      - `soTags` **`string | string[]`** — Stack Overflow tags in the chat context
+      - `stIssues` **`object[]`** — Startrek tracker slices in the chat context
   yabug:
     type: object
     properties:
