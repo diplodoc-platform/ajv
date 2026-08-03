@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/diplodoc-platform/ajv/compare/v0.1.5...v0.2.0) (2026-08-03)
+
+
+### Features
+
+* added ai chat types ([#43](https://github.com/diplodoc-platform/ajv/issues/43)) ([208ff67](https://github.com/diplodoc-platform/ajv/commit/208ff6781481de36f4d2b3ffb80422033bc34a50))
+
 ## [0.1.5](https://github.com/diplodoc-platform/ajv/compare/v0.1.4...v0.1.5) (2026-07-28)
 
 
