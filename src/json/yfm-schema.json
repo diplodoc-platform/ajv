@@ -815,7 +815,7 @@
     "neuroExpert": {
       "$ref": "#/definitions/NeuroExpertConfig",
       "description": "AI expert widget configuration.",
-      "markdownDescription": "**`NeuroExpertConfig`** AI expert widget global configuration.\n\n- `projectId` **`NeuroExpertConfig`** — language → project ID map\n- `hasOutsideClick` **`boolean`** — close on outside click\n- `parentId` **`string | null`** — parent element ID\n- `disabled` **`boolean`** — disable widget globally\n- `customLabel` **`NeuroExpertConfig`** — language → custom header label map\n- `type` **`'widget' | 'search'`** — widget integration type"
+      "markdownDescription": "**`NeuroExpertConfig`** AI expert widget global configuration.\n\n- `projectId` **`object | object[]`** — language → project ID map or a list of such maps\n- `hasOutsideClick` **`boolean`** — close on outside click\n- `parentId` **`string | null`** — parent element ID\n- `disabled` **`boolean`** — disable widget globally\n- `customLabel` **`NeuroExpertConfig`** — language → custom header label map\n- `type` **`'widget' | 'search'`** — widget integration type"
     },
     "yabug": {
       "$ref": "#/definitions/YaBugConfig",
@@ -1722,9 +1722,19 @@
       "type": "object",
       "properties": {
         "projectId": {
-          "type": "object",
-          "description": "Map of language codes to project IDs. Use \"default\" key for fallback.",
-          "markdownDescription": "**`object`** Map of language codes to AI expert project IDs. Use `default` as fallback key."
+          "oneOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          ],
+          "description": "Map of language codes to project IDs, or a list of such maps.",
+          "markdownDescription": "**`object | object[]`** Language-to-project-ID map, or a list of such maps."
         },
         "hasOutsideClick": {
           "type": "boolean",
@@ -1772,7 +1782,7 @@
         }
       },
       "additionalProperties": false,
-      "markdownDescription": "**`NeuroExpertConfig`** AI expert (Yandex Neuro Expert) widget configuration.\n\n- `projectId` **`{projectId, hasOutsideClick, parentId, ...}`** — language → project ID map (use `default` as fallback key)\n- `hasOutsideClick` **`boolean`** — close widget on outside click\n- `parentId` **`string | null`** — parent element ID for placement\n- `disabled` **`boolean`** — disable the widget globally\n- `customLabel` **`{projectId, hasOutsideClick, parentId, ...}`** — language → custom header label map\n- `type` **`'widget' | 'search'`** — widget integration type",
+      "markdownDescription": "**`NeuroExpertConfig`** AI expert (Yandex Neuro Expert) widget configuration.\n\n- `projectId` **`object | object[]`** — language → project ID map or a list of such maps\n- `hasOutsideClick` **`boolean`** — close widget on outside click\n- `parentId` **`string | null`** — parent element ID for placement\n- `disabled` **`boolean`** — disable the widget globally\n- `customLabel` **`{projectId, hasOutsideClick, parentId, ...}`** — language → custom header label map\n- `type` **`'widget' | 'search'`** — widget integration type",
       "description": "AI expert widget config. Fields: projectId, hasOutsideClick, parentId, disabled, customLabel, type."
     },
     "PublishConfig": {
