@@ -761,7 +761,7 @@ properties:
     markdownDescription: |-
       **`NeuroExpertConfig`** AI expert widget global configuration.
 
-      - `projectId` **`NeuroExpertConfig`** — language → project ID map
+      - `projectId` **`object | object[]`** — language → project ID map or a list of such maps
       - `hasOutsideClick` **`boolean`** — close on outside click
       - `parentId` **`string | null`** — parent element ID
       - `disabled` **`boolean`** — disable widget globally
@@ -1468,9 +1468,13 @@ definitions:
     type: object
     properties:
       projectId:
-        type: object
-        description: Map of language codes to project IDs. Use "default" key for fallback.
-        markdownDescription: '**`object`** Map of language codes to AI expert project IDs. Use `default` as fallback key.'
+        oneOf:
+          - type: object
+          - type: array
+            items:
+              type: object
+        description: Map of language codes to project IDs, or a list of such maps.
+        markdownDescription: '**`object | object[]`** Language-to-project-ID map, or a list of such maps.'
       hasOutsideClick:
         type: boolean
         markdownDescription: '**`boolean`** Close the AI expert widget when the user clicks outside it.'
@@ -1509,7 +1513,7 @@ definitions:
     markdownDescription: |-
       **`NeuroExpertConfig`** AI expert (Yandex Neuro Expert) widget configuration.
 
-      - `projectId` **`{projectId, hasOutsideClick, parentId, ...}`** — language → project ID map (use `default` as fallback key)
+      - `projectId` **`object | object[]`** — language → project ID map or a list of such maps
       - `hasOutsideClick` **`boolean`** — close widget on outside click
       - `parentId` **`string | null`** — parent element ID for placement
       - `disabled` **`boolean`** — disable the widget globally
