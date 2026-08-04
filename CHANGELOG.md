@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/diplodoc-platform/ajv/compare/v0.2.0...v0.2.1) (2026-08-04)
+
+
+### Bug Fixes
+
+* fix project id ([#46](https://github.com/diplodoc-platform/ajv/issues/46)) ([c59852a](https://github.com/diplodoc-platform/ajv/commit/c59852a3dc2c6fe7ad6724faf984ebcc6cca499d))
+
 ## [0.2.0](https://github.com/diplodoc-platform/ajv/compare/v0.1.5...v0.2.0) (2026-08-03)
 
 
