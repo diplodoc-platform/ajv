@@ -17,6 +17,20 @@ properties:
     markdownDescription: '**`string`** Meta description for SEO (`<meta name="description">`). Shown in search engine snippets.'
   keywords:
     $ref: '#/definitions/Keywords'
+  tags:
+    type: array
+    items:
+      type: string
+      markdownDescription: '**`string`**'
+    description: Tags associated with the page.
+    markdownDescription: |-
+      **`string[]`** Tags associated with the page and used for navigation and search filtering.
+
+      Tags prefixed with `_` are technical and are excluded from the UI and search index.
+    defaultSnippets:
+      - label: Add page tags
+        body:
+          - ${1:tag}
   noIndex:
     type: boolean
     description: Adds noindex/nofollow meta tag to prevent search engine indexing.
