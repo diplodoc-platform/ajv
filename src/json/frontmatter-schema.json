@@ -6,14 +6,16 @@
   "type": "object",
   "properties": {
     "title": {
-      "type": "string",
+      "$ref": "#/definitions/TextItems",
+      "translate": "md",
       "description": "Page title for HTML head and SEO.",
-      "markdownDescription": "**`string`** Page title used in the browser tab, navigation sidebar, and SEO `<title>` tag.\n\nOverrides the first `#` heading for display purposes."
+      "markdownDescription": "**`string | TextItem[]`** Page title used in the browser tab, navigation sidebar, and SEO `<title>` tag.\n\nOverrides the first `#` heading for display purposes."
     },
     "description": {
-      "type": "string",
+      "$ref": "#/definitions/TextItems",
+      "translate": "md",
       "description": "Meta description for SEO.",
-      "markdownDescription": "**`string`** Meta description for SEO (`<meta name=\"description\">`). Shown in search engine snippets."
+      "markdownDescription": "**`string | TextItem[]`** Meta description for SEO (`<meta name=\"description\">`). Shown in search engine snippets."
     },
     "keywords": {
       "$ref": "#/definitions/Keywords"
@@ -752,7 +754,7 @@
       "doNotSuggest": true
     }
   },
-  "additionalProperties": false,
+  "additionalProperties": true,
   "definitions": {
     "Alternate": {
       "type": "object",
@@ -771,6 +773,66 @@
       "additionalProperties": false,
       "markdownDescription": "**`Alternate`** Alternate language version of this page for `<link rel=\"alternate\">`.",
       "description": "Alternate language version of this page."
+    },
+    "TextItems": {
+      "oneOf": [
+        {
+          "type": "string",
+          "markdownDescription": "**`string`**"
+        },
+        {
+          "type": "array",
+          "translate": "md",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string",
+                "markdownDescription": "**`string`**",
+                "translate": "md"
+              },
+              {
+                "$ref": "#/definitions/TextItem"
+              }
+            ]
+          },
+          "markdownDescription": "**`string | TextItem[]`**"
+        }
+      ],
+      "description": "Plain string or array of conditional text items.",
+      "markdownDescription": "**`string | TextItem[]`** Text value — either a plain string or a list of conditional text items (the first item whose `when` condition is truthy is used)."
+    },
+    "TextItem": {
+      "type": "object",
+      "description": "Conditional text item — the first item whose 'when' is truthy is used.",
+      "properties": {
+        "text": {
+          "oneOf": [
+            {
+              "type": "string",
+              "markdownDescription": "**`string`**"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "markdownDescription": "**`string`**"
+              },
+              "markdownDescription": "**`string[]`**"
+            }
+          ],
+          "translate": "md",
+          "description": "Text content to display when the condition is met.",
+          "markdownDescription": "**`string | string[]`** Text content shown when `when` is truthy. **Required.**"
+        },
+        "when": {
+          "type": ["string", "boolean"],
+          "description": "Liquid condition. This item is used when the expression is truthy.",
+          "markdownDescription": "**`string | boolean`** Liquid condition. This item is selected when the expression is truthy."
+        }
+      },
+      "required": ["text"],
+      "additionalProperties": true,
+      "markdownDescription": "**`TextItem`** Conditional text item. The first item in the array whose `when` evaluates to `true` is displayed.\n\n```yaml\ntitle:\n  - text: Internal title\n    when: env == 'internal'\n  - text: Public title\n```"
     },
     "Keywords": {
       "type": "array",

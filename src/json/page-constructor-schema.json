@@ -36969,22 +36969,13 @@
   },
   "properties": {
     "meta": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "$ref": "#/definitions/TextItems",
-          "translate": "md"
-        },
-        "description": {
-          "$ref": "#/definitions/TextItems",
-          "translate": "md"
-        },
-        "noIndex": {
-          "type": "boolean",
-          "markdownDescription": "**`boolean`**"
+      "allOf": [
+        {
+          "$ref": "./frontmatter-schema.yaml#"
         }
-      },
-      "markdownDescription": "**`{title, description, noIndex}`**"
+      ],
+      "description": "Page metadata — SEO, UI overrides, resources, and access rules. Uses the same fields as Markdown frontmatter.",
+      "markdownDescription": "**`Frontmatter`** Page metadata — uses the same fields as Markdown frontmatter:\n`title`, `description`, `noIndex`, `keywords`, `canonical`, `interface` (toc, gallery, search…), `stage`, `script`, `style`, `restricted-access`, etc."
     },
     "animated": {
       "type": "boolean",
