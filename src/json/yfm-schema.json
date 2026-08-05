@@ -2309,8 +2309,8 @@
       "properties": {
         "provider": {
           "type": "string",
-          "description": "Translation service provider: yandex, yandexgpt, openai, openrouter, anthropic.",
-          "markdownDescription": "**`string`** Translation service provider: `yandex` (default), `yandexgpt`, `openai`, `openrouter`, `anthropic`."
+          "description": "Translation provider, effectively the API protocol: yandex, yandexgpt, openai, openrouter, anthropic. For self-hosted compatible APIs pick the matching protocol and set apiBase.",
+          "markdownDescription": "**`string`** Translation provider - effectively the API protocol: `yandex` (default), `yandexgpt`, `openai`, `openrouter`, `anthropic`.\n\nFor a self-hosted or internal installation of a compatible API, pick the matching protocol and point `apiBase` at it (e.g. an internal gateway speaking the Anthropic protocol is `provider: anthropic` + `apiBase`). CLI extensions may register additional provider names."
         },
         "source": {
           "oneOf": [
