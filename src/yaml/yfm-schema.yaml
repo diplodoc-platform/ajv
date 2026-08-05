@@ -1928,8 +1928,11 @@ definitions:
     properties:
       provider:
         type: string
-        description: Translation service provider identifier.
-        markdownDescription: '**`string`** Translation service provider identifier.'
+        description: 'Translation provider, effectively the API protocol: yandex, yandexgpt, openai, openrouter, anthropic. For self-hosted compatible APIs pick the matching protocol and set apiBase.'
+        markdownDescription: |-
+          **`string`** Translation provider - effectively the API protocol: `yandex` (default), `yandexgpt`, `openai`, `openrouter`, `anthropic`.
+
+          For a self-hosted or internal installation of a compatible API, pick the matching protocol and point `apiBase` at it (e.g. an internal gateway speaking the Anthropic protocol is `provider: anthropic` + `apiBase`). CLI extensions may register additional provider names.
       source:
         oneOf:
           - type: string
@@ -2018,6 +2021,75 @@ definitions:
         type: string
         description: Path to glossary YAML file (provider-specific).
         markdownDescription: '**`string`** Path to a glossary YAML file (provider-specific).'
+      model:
+        type: string
+        description: Model identifier for AI providers (short name or full URI).
+        markdownDescription: '**`string`** Model identifier for AI providers, e.g. `yandexgpt-lite`, `gpt-4o-mini`, `gpt://<folder>/yandexgpt/latest`.'
+      apiBase:
+        type: string
+        description: Base URL override for the AI provider API (self-hosted or internal installations).
+        markdownDescription: '**`string`** Base URL override for the AI provider API. The provider request path is appended automatically (`/chat/completions`, `/messages`, `/foundationModels/v1/completion`).'
+      apiHeaders:
+        type: object
+        additionalProperties:
+          type: string
+        description: Extra HTTP headers for AI provider requests (internal gateways).
+        markdownDescription: '**`Record<string, string>`** Extra HTTP headers for AI provider requests. Useful for internal gateways with custom auth schemes.'
+      systemPrompt:
+        type: string
+        description: System prompt for AI translation (text or path to a file).
+        markdownDescription: '**`string`** System prompt for AI translation. Text or a path to a file. Supports placeholders `{{source}}`, `{{target}}`, `{{glossary}}`, `{{context}}`, `{{separator}}`, `{{fragments}}`.'
+      userPrompt:
+        type: string
+        description: User prompt template for AI translation (text or path to a file).
+        markdownDescription: '**`string`** User prompt template for AI translation. Text or a path to a file. Supports the same placeholders as `systemPrompt` plus `{{text}}`.'
+      promptMode:
+        type: string
+        enum:
+          - append
+          - replace
+        description: 'How the custom system prompt interacts with the built-in one. Default: append.'
+        markdownDescription: '**`append | replace`** How the custom system prompt interacts with the built-in one. Default: `append`.'
+      cacheDir:
+        type: string
+        description: Directory for the persistent translation cache (AI providers).
+        markdownDescription: '**`string`** Directory for the persistent translation cache. Repeated runs reuse stored translations and send only new or changed units to the LLM. Each model keeps its own cache file.'
+      judge:
+        type: boolean
+        description: Score translated units with a judge model and write a quality report (AI providers).
+        markdownDescription: '**`boolean`** Score translated units with a judge model after translation and write `translate-quality.<lang>.json` to the output directory. Roughly doubles token usage.'
+      judgeModel:
+        type: string
+        description: Model used for quality scoring. Defaults to the translation model.
+        markdownDescription: '**`string`** Model used for quality scoring. Defaults to the translation model.'
+      judgeThreshold:
+        type: number
+        description: 'Score below which a segment is reported as low quality. Default: 70.'
+        markdownDescription: '**`number`** Score below which a segment is reported as low quality. Default: `70`.'
+      temperature:
+        type: number
+        description: 'Sampling temperature for AI translation. Default: 0.'
+        markdownDescription: '**`number`** Sampling temperature for AI translation. Default: `0`.'
+      maxOutputTokens:
+        type: number
+        description: 'Maximum tokens in a single LLM response. Default: 4000.'
+        markdownDescription: '**`number`** Maximum tokens in a single LLM response. Default: `4000`.'
+      maxBatchTokens:
+        type: number
+        description: 'Token budget for a single LLM request. Default: 2000.'
+        markdownDescription: '**`number`** Token budget for a single LLM request. Translation units are batched up to this limit and sent together. Default: `2000`.'
+      maxConcurrency:
+        type: number
+        description: 'Maximum concurrent LLM requests. Default: 5.'
+        markdownDescription: '**`number`** Maximum concurrent LLM requests. Default: `5`.'
+      retry:
+        type: number
+        description: 'Number of retries on retryable LLM errors. Default: 3.'
+        markdownDescription: '**`number`** Number of retries on retryable LLM errors. Default: `3`.'
+      timeout:
+        type: number
+        description: 'Timeout in milliseconds for a single translation API request. Defaults: 5000 (yandex), 60000 (AI providers).'
+        markdownDescription: '**`number`** Timeout in milliseconds for a single translation API request. Defaults: `5000` for yandex, `60000` for AI providers.'
       auth:
         type: string
         sensitive: true
@@ -2034,7 +2106,11 @@ definitions:
       - `include` / `exclude` **`string[]`** — glob filters
       - `dryRun` **`boolean`** — calculate quota without translating
       - `useSource` **`boolean`** — use original text as output (debug)
-    description: 'Translate command config. Fields: provider, source, target, files, include, exclude, vars, dryRun, useSource, and provider-specific fields.'
+      - `model` / `apiBase` / `apiHeaders` — AI provider connection
+      - `systemPrompt` / `userPrompt` / `promptMode` — AI prompt customization
+      - `cacheDir` **`string`** — persistent translation cache (AI providers)
+      - `judge` / `judgeModel` / `judgeThreshold` — LLM-as-judge quality report
+    description: 'Translate command config. Fields: provider, source, target, files, include, exclude, vars, dryRun, useSource, AI provider fields (model, apiBase, apiHeaders, prompts, cacheDir, judge) and provider-specific fields.'
   AnalyticsConfig:
     description: Web analytics configuration (e.g. Google Tag Manager).
     type: object
