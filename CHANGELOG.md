@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0](https://github.com/diplodoc-platform/ajv/compare/v0.3.0...v0.4.0) (2026-08-06)
+
+
+### Features
+
+* added page tags ([#51](https://github.com/diplodoc-platform/ajv/issues/51)) ([f609b2e](https://github.com/diplodoc-platform/ajv/commit/f609b2e6aa3a17e863a68d649a7df03e00dcd5d7))
+* **yfm:** describe translate copyAssets field ([#53](https://github.com/diplodoc-platform/ajv/issues/53)) ([6f4dffc](https://github.com/diplodoc-platform/ajv/commit/6f4dffc809cc4b2852969beb446c2b669fef0095))
+
 ## [0.3.0](https://github.com/diplodoc-platform/ajv/compare/v0.2.1...v0.3.0) (2026-08-06)
 
 
