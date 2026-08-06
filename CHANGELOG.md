@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/diplodoc-platform/ajv/compare/v0.2.1...v0.3.0) (2026-08-06)
+
+
+### Features
+
+* **yfm:** describe AI translate provider fields ([#48](https://github.com/diplodoc-platform/ajv/issues/48)) ([308ed2f](https://github.com/diplodoc-platform/ajv/commit/308ed2f32944f3b5360d2eee602abb4eb979ec96))
+
+
+### Bug Fixes
+
+* add ref to frontmatter ([#45](https://github.com/diplodoc-platform/ajv/issues/45)) ([b1d91ba](https://github.com/diplodoc-platform/ajv/commit/b1d91ba914d11783bd58ad42b0b8bffdc33798ad))
+
 ## [0.2.1](https://github.com/diplodoc-platform/ajv/compare/v0.2.0...v0.2.1) (2026-08-04)
 
 
