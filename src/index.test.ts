@@ -36,6 +36,7 @@ describe('schema validity (ajv)', () => {
     it.each(COMPILABLE)('compiles %s with ajv', (name) => {
         const ajv = new Ajv({strict: false, allowUnionTypes: true});
         addFormats(ajv);
+
         expect(() => ajv.compile(schemas[`${name}Json`])).not.toThrow();
     });
 });
