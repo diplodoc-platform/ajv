@@ -2392,6 +2392,11 @@
           "description": "Calculate quota without executing translation.",
           "markdownDescription": "**`boolean`** Calculate translation quota without executing the translation."
         },
+        "copyAssets": {
+          "type": "boolean",
+          "description": "Copy non-translatable files (images and other assets) from the source language directory to the target language directories in the output.",
+          "markdownDescription": "**`boolean`** Copy non-translatable files (images and other assets) from the source language directory to the target language directories in the output, so the translated file set is buildable on its own."
+        },
         "useSource": {
           "type": "boolean",
           "description": "Use original text as translation result (debug mode).",
