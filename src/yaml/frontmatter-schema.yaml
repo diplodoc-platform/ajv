@@ -6,7 +6,6 @@ type: object
 properties:
   title:
     $ref: '#/definitions/TextItems'
-    translate: md
     description: Page title for HTML head and SEO.
     markdownDescription: |-
       **`string | TextItem[]`** Page title used in the browser tab, navigation sidebar, and SEO `<title>` tag.
@@ -14,7 +13,6 @@ properties:
       Overrides the first `#` heading for display purposes.
   description:
     $ref: '#/definitions/TextItems'
-    translate: md
     description: Meta description for SEO.
     markdownDescription: '**`string | TextItem[]`** Meta description for SEO (`<meta name="description">`). Shown in search engine snippets.'
   keywords:
@@ -600,8 +598,8 @@ definitions:
     oneOf:
       - type: string
         markdownDescription: '**`string`**'
-      - type: array
         translate: md
+      - type: array
         items:
           oneOf:
             - type: string

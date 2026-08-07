@@ -7,13 +7,11 @@
   "properties": {
     "title": {
       "$ref": "#/definitions/TextItems",
-      "translate": "md",
       "description": "Page title for HTML head and SEO.",
       "markdownDescription": "**`string | TextItem[]`** Page title used in the browser tab, navigation sidebar, and SEO `<title>` tag.\n\nOverrides the first `#` heading for display purposes."
     },
     "description": {
       "$ref": "#/definitions/TextItems",
-      "translate": "md",
       "description": "Meta description for SEO.",
       "markdownDescription": "**`string | TextItem[]`** Meta description for SEO (`<meta name=\"description\">`). Shown in search engine snippets."
     },
@@ -793,11 +791,11 @@
       "oneOf": [
         {
           "type": "string",
-          "markdownDescription": "**`string`**"
+          "markdownDescription": "**`string`**",
+          "translate": "md"
         },
         {
           "type": "array",
-          "translate": "md",
           "items": {
             "oneOf": [
               {
