@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/diplodoc-platform/ajv/compare/v0.4.1...v0.4.2) (2026-08-10)
+
+
+### Bug Fixes
+
+* restrict frontmatter title and description to strings ([afe421a](https://github.com/diplodoc-platform/ajv/commit/afe421a8bc7ee33445f570de910ab14907807997))
+
 ## [0.4.1](https://github.com/diplodoc-platform/ajv/compare/v0.4.0...v0.4.1) (2026-08-07)
 
 
