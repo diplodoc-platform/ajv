@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.3](https://github.com/diplodoc-platform/ajv/compare/v0.4.2...v0.4.3) (2026-08-10)
+
+
+### Bug Fixes
+
+* added ya.make ignore command ([#58](https://github.com/diplodoc-platform/ajv/issues/58)) ([64676c9](https://github.com/diplodoc-platform/ajv/commit/64676c90f55180c6aa130d67bf69c0488df76f78))
+
 ## [0.4.2](https://github.com/diplodoc-platform/ajv/compare/v0.4.1...v0.4.2) (2026-08-10)
 
 
