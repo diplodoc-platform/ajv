@@ -131,6 +131,11 @@
       "description": "Glob patterns for paths to exclude from processing.",
       "markdownDescription": "**`string[]`** Glob patterns for files/directories to exclude from processing.\n\n```yaml\nignore:\n  - '**/draft/**'\n  - '**/*.tmp.md'\n```"
     },
+    "ignoreYaMake": {
+      "type": "boolean",
+      "description": "Disable automatic ya.make detection and processing.",
+      "markdownDescription": "**`boolean`** Ignore `ya.make` in the input directory and build the original documentation sources."
+    },
     "ignoreStage": {
       "type": "array",
       "items": {
