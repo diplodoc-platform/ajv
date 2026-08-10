@@ -137,6 +137,10 @@ properties:
         - '**/draft/**'
         - '**/*.tmp.md'
       ```
+  ignoreYaMake:
+    type: boolean
+    description: Disable automatic ya.make detection and processing.
+    markdownDescription: '**`boolean`** Ignore `ya.make` in the input directory and build the original documentation sources.'
   ignoreStage:
     type: array
     items:
