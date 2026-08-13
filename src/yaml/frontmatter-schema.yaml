@@ -23,6 +23,7 @@ properties:
     type: array
     items:
       type: string
+      maxLength: 32
       markdownDescription: '**`string`**'
     description: Tags associated with the page.
     markdownDescription: |-
