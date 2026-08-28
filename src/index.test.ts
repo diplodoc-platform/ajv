@@ -40,3 +40,24 @@ describe('schema validity (ajv)', () => {
         expect(() => ajv.compile(schemas[`${name}Json`])).not.toThrow();
     });
 });
+
+describe('toc noIndex', () => {
+    const ajv = new Ajv({strict: false, allowUnionTypes: true});
+    addFormats(ajv);
+    const validate = ajv.compile(schemas.tocSchemaJson);
+
+    it.each([
+        {noIndex: true},
+        {items: [{name: 'Private page', href: 'private.md', noIndex: true}]},
+        {items: [{name: 'Public page', href: 'public.md', noIndex: false}]},
+    ])('accepts boolean noIndex values', (toc) => {
+        expect(validate(toc)).toBe(true);
+    });
+
+    it.each([{noIndex: 'true'}, {items: [{name: 'Private page', href: 'private.md', noIndex: 1}]}])(
+        'rejects non-boolean noIndex values',
+        (toc) => {
+            expect(validate(toc)).toBe(false);
+        },
+    );
+});
