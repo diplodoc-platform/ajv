@@ -45,19 +45,21 @@ describe('toc noIndex', () => {
     const ajv = new Ajv({strict: false, allowUnionTypes: true});
     addFormats(ajv);
     const validate = ajv.compile(schemas.tocSchemaJson);
+    const invalidNoIndexValues = ['true', 1, null, {}, []];
 
-    it.each([
-        {noIndex: true},
-        {items: [{name: 'Private page', href: 'private.md', noIndex: true}]},
-        {items: [{name: 'Public page', href: 'public.md', noIndex: false}]},
-    ])('accepts boolean noIndex values', (toc) => {
-        expect(validate(toc)).toBe(true);
+    it.each([true, false])('accepts root noIndex: %s', (noIndex) => {
+        expect(validate({noIndex})).toBe(true);
     });
 
-    it.each([{noIndex: 'true'}, {items: [{name: 'Private page', href: 'private.md', noIndex: 1}]}])(
-        'rejects non-boolean noIndex values',
-        (toc) => {
-            expect(validate(toc)).toBe(false);
-        },
-    );
+    it.each([true, false])('accepts item noIndex: %s', (noIndex) => {
+        expect(validate({items: [{name: 'Page', href: 'page.md', noIndex}]})).toBe(true);
+    });
+
+    it.each(invalidNoIndexValues)('rejects root noIndex: %j', (noIndex) => {
+        expect(validate({noIndex})).toBe(false);
+    });
+
+    it.each(invalidNoIndexValues)('rejects item noIndex: %j', (noIndex) => {
+        expect(validate({items: [{name: 'Page', href: 'page.md', noIndex}]})).toBe(false);
+    });
 });
