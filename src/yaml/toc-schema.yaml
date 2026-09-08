@@ -13,6 +13,10 @@ properties:
     format: url
     markdownDescription: '**`string`** Entry-point page for this TOC section. Relative path to a `.md` file or nested `index.yaml`.'
     description: Entry-point page for this TOC section (relative path to a .md or index.yaml file).
+  noIndex:
+    type: boolean
+    markdownDescription: '**`boolean`** Exclude this TOC entry point and all descendant pages from search indexes and generated LLM indexes.'
+    description: Exclude this TOC entry point and all descendant pages from indexes.
   stage:
     type: string
     markdownDescription: "**`'new' | 'preview' | 'tech-preview' | 'skip'`** Publication stage controlling which builds include this entire section."
@@ -243,6 +247,10 @@ definitions:
         type: boolean
         markdownDescription: '**`boolean`** Hide this item in the sidebar. The page is still built and accessible by direct URL.'
         description: Exclude this item from the sidebar (but the page is still built).
+      noIndex:
+        type: boolean
+        markdownDescription: '**`boolean`** Exclude this page and all descendant pages from search indexes and generated LLM indexes.'
+        description: Exclude this page and all descendant pages from indexes.
       analyticsEvents:
         oneOf:
           - $ref: '#/definitions/AnalyticsEvent'
