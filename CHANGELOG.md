@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/diplodoc-platform/ajv/compare/v0.4.4...v0.5.0) (2026-09-14)
+
+
+### Features
+
+* added summary field in meta ([#65](https://github.com/diplodoc-platform/ajv/issues/65)) ([647402a](https://github.com/diplodoc-platform/ajv/commit/647402a9414aabc92e9fe885e8ec5ab3b72edec8))
+
 ## [0.4.4](https://github.com/diplodoc-platform/ajv/compare/v0.4.3...v0.4.4) (2026-08-13)
 
 
