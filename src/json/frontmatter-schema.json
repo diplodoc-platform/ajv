@@ -17,6 +17,10 @@
       "description": "Meta description for SEO.",
       "markdownDescription": "**`string`** Meta description for SEO (`<meta name=\"description\">`). Shown in search engine snippets."
     },
+    "summary": {
+      "type": "string",
+      "maxLength": 100
+    },
     "keywords": {
       "$ref": "#/definitions/Keywords"
     },
@@ -770,7 +774,7 @@
       "doNotSuggest": true
     }
   },
-  "additionalProperties": true,
+  "additionalProperties": false,
   "definitions": {
     "Alternate": {
       "type": "object",
