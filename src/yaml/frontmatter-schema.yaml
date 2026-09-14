@@ -17,6 +17,9 @@ properties:
     translate: md
     description: Meta description for SEO.
     markdownDescription: '**`string`** Meta description for SEO (`<meta name="description">`). Shown in search engine snippets.'
+  summary:
+    type: string
+    maxLength: 100
   keywords:
     $ref: '#/definitions/Keywords'
   tags:
@@ -580,7 +583,7 @@ properties:
     description: Metadata items from presets (only when addMetadataMeta is enabled).
     markdownDescription: '**`MetaItem[]`** *(system-generated)* Metadata items from presets injected when `addMetadataMeta: true` is set.'
     doNotSuggest: true
-additionalProperties: true
+additionalProperties: false
 definitions:
   Alternate:
     type: object
