@@ -72,6 +72,11 @@
         "**md** — render to enriched Markdown with injected metadata (for further processing or translation)."
       ]
     },
+    "baseHref": {
+      "type": "string",
+      "description": "Base URL used for absolute links in statically generated documentation.",
+      "markdownDescription": "**`string`** Publication root used by static HTML metadata and llms artifacts, and written to `<base href=\"...\">`. A trailing slash is added automatically when missing."
+    },
     "varsPreset": {
       "type": "string",
       "description": "Name of the variables preset from presets.yaml. Merged with the \"default\" section.",
