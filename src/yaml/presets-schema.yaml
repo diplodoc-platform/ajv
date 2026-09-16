@@ -41,7 +41,8 @@ definitions:
           Keys are language codes (e.g. `en`, `ru`). Each value is a map of variable names to their values for that language.
 
           Variable resolution order: `i18n[currentLang]` → preset root → `default` preset.
-    additionalProperties: true
+    additionalProperties:
+      $ref: '#/definitions/property'
     markdownDescription: |-
       **`{i18n}`** A named set of template variables.
 
@@ -59,20 +60,29 @@ definitions:
   property:
     oneOf:
       - type: string
+        translate: md
         markdownDescription: '**`string`**'
       - type: number
         markdownDescription: '**`number`**'
+      - type: boolean
+        markdownDescription: '**`boolean`**'
+      - type: array
+        items:
+          $ref: '#/definitions/property'
+        markdownDescription: '**`array`**'
       - type: object
         patternProperties:
           ^[a-zA-Z0-9\.\-_]+$:
             $ref: '#/definitions/property'
-    description: 'Preset variable value: string, number, or nested object.'
+    description: 'Preset variable value: string, number, boolean, array or nested object.'
     markdownDescription: |-
-      **`string | number | object`** Preset variable value.
+      **`string | number | boolean | array | object`** Preset variable value.
 
-      - **string** — text value, supports Markdown inline syntax (`translate: md`)
-      - **number** — numeric value
-      - **object** — nested variable namespace (access as `{{ parent.child }}`)
+      - **string**: text value, supports Markdown inline syntax and is extracted by `yfm translate` (`translate: md`)
+      - **number**: numeric value
+      - **boolean**: flag value
+      - **array**: list of values
+      - **object**: nested variable namespace (access as `{{ parent.child }}`)
 markdownDescription: |-
   Diplodoc presets file (`presets.yaml`).
   Defines named sets of template variables used in Liquid expressions inside `.md` files and `toc.yaml`.
