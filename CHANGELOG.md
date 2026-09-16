@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/diplodoc-platform/ajv/compare/v0.5.0...v0.6.0) (2026-09-16)
+
+
+### Features
+
+* **schema:** add baseHref to yfm config ([f466c44](https://github.com/diplodoc-platform/ajv/commit/f466c44b73b584f10525830c34af6c1bb53c31b2))
+
 ## [0.5.0](https://github.com/diplodoc-platform/ajv/compare/v0.4.4...v0.5.0) (2026-09-14)
 
 
