@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/diplodoc-platform/ajv/compare/v0.6.0...v0.6.1) (2026-09-16)
+
+
+### Bug Fixes
+
+* **presets:** mark preset variables as translatable ([#69](https://github.com/diplodoc-platform/ajv/issues/69)) ([d217c41](https://github.com/diplodoc-platform/ajv/commit/d217c414f84d8a69351b369eb28b85cc44d9337a))
+
 ## [0.6.0](https://github.com/diplodoc-platform/ajv/compare/v0.5.0...v0.6.0) (2026-09-16)
 
 
