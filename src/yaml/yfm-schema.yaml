@@ -386,6 +386,14 @@ properties:
         type: boolean
         description: Enable opening images in the gallery.
         markdownDescription: '**`boolean`** Enable (`true`, default) or disable (`false`) opening images in the gallery viewer globally.'
+      markdownActions:
+        type: string
+        enum:
+          - visible
+          - dropdown
+          - none
+        description: Display mode for Copy/View as Markdown actions.
+        markdownDescription: "**`'visible' | 'dropdown' | 'none'`** Show Copy/View as Markdown as separate buttons, inside a dropdown (default), or hide them."
       favicon-src:
         type: string
         description: URL to a custom favicon.
@@ -401,6 +409,7 @@ properties:
       - `search` — show/hide the search input
       - `feedback` — show/hide like/dislike controls
       - `gallery` — enable/disable opening images in the gallery
+      - `markdownActions` — show Markdown actions as separate buttons (`visible`), in a menu (`dropdown`, default), or hide them (`none`)
       - `favicon-src` — custom favicon URL
   feedbackUrl:
     type: string
