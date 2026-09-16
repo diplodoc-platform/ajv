@@ -40,7 +40,9 @@
           "markdownDescription": "**`object`** Per-language variable overrides.\n\nKeys are language codes (e.g. `en`, `ru`). Each value is a map of variable names to their values for that language.\n\nVariable resolution order: `i18n[currentLang]` → preset root → `default` preset."
         }
       },
-      "additionalProperties": true,
+      "additionalProperties": {
+        "$ref": "#/definitions/property"
+      },
       "markdownDescription": "**`{i18n}`** A named set of template variables.\n\nVariables are available in Liquid expressions as `{{ var_name }}`.\n\nThe special `i18n` key holds per-language variable overrides:\n```yaml\ni18n:\n  en:\n    greeting: Hello\n  ru:\n    greeting: Привет\n```",
       "description": "A named set of template variables. Variables are accessible as {{ var_name }} in Markdown and toc.yaml."
     },
@@ -48,11 +50,23 @@
       "oneOf": [
         {
           "type": "string",
+          "translate": "md",
           "markdownDescription": "**`string`**"
         },
         {
           "type": "number",
           "markdownDescription": "**`number`**"
+        },
+        {
+          "type": "boolean",
+          "markdownDescription": "**`boolean`**"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/property"
+          },
+          "markdownDescription": "**`array`**"
         },
         {
           "type": "object",
@@ -63,8 +77,8 @@
           }
         }
       ],
-      "description": "Preset variable value: string, number, or nested object.",
-      "markdownDescription": "**`string | number | object`** Preset variable value.\n\n- **string** — text value, supports Markdown inline syntax (`translate: md`)\n- **number** — numeric value\n- **object** — nested variable namespace (access as `{{ parent.child }}`)"
+      "description": "Preset variable value: string, number, boolean, array or nested object.",
+      "markdownDescription": "**`string | number | boolean | array | object`** Preset variable value.\n\n- **string**: text value, supports Markdown inline syntax and is extracted by `yfm translate` (`translate: md`)\n- **number**: numeric value\n- **boolean**: flag value\n- **array**: list of values\n- **object**: nested variable namespace (access as `{{ parent.child }}`)"
     }
   },
   "markdownDescription": "Diplodoc presets file (`presets.yaml`).\nDefines named sets of template variables used in Liquid expressions inside `.md` files and `toc.yaml`.\nThe `default` preset is always applied. Additional presets are activated via `varsPreset` in `.yfm` or the `--vars-preset` CLI flag.\n```yaml default:\n  version: '2.0'\n  env: production\n\ninternal:\n  env: internal\n  show_drafts: true\n\ni18n:\n  en:\n    greeting: Hello\n  ru:\n    greeting: Привет\n```"
