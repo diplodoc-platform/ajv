@@ -40,3 +40,16 @@ describe('schema validity (ajv)', () => {
         expect(() => ajv.compile(schemas[`${name}Json`])).not.toThrow();
     });
 });
+
+describe('yfm interface.markdownActions', () => {
+    const ajv = new Ajv({strict: false, allowUnionTypes: true});
+    const validate = ajv.compile(schemas.yfmSchemaJson);
+
+    it.each(['visible', 'dropdown', 'none'])('accepts %s', (markdownActions) => {
+        expect(validate({interface: {markdownActions}})).toBe(true);
+    });
+
+    it('rejects unsupported modes', () => {
+        expect(validate({interface: {markdownActions: 'hidden'}})).toBe(false);
+    });
+});

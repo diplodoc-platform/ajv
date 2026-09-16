@@ -424,6 +424,12 @@
           "description": "Enable opening images in the gallery.",
           "markdownDescription": "**`boolean`** Enable (`true`, default) or disable (`false`) opening images in the gallery viewer globally."
         },
+        "markdownActions": {
+          "type": "string",
+          "enum": ["visible", "dropdown", "none"],
+          "description": "Display mode for Copy/View as Markdown actions.",
+          "markdownDescription": "**`'visible' | 'dropdown' | 'none'`** Show Copy/View as Markdown as separate buttons, inside a dropdown (default), or hide them."
+        },
         "favicon-src": {
           "type": "string",
           "description": "URL to a custom favicon.",
@@ -432,7 +438,7 @@
       },
       "additionalProperties": false,
       "description": "Viewer interface visibility flags.",
-      "markdownDescription": "**`{toc, toc-header, search, ...}`** Global UI visibility flags. Per-page `interface` frontmatter overrides these values.\n\nAvailable fields:\n- `toc` — show/hide the sidebar\n- `toc-header` — show/hide the TOC header section\n- `search` — show/hide the search input\n- `feedback` — show/hide like/dislike controls\n- `gallery` — enable/disable opening images in the gallery\n- `favicon-src` — custom favicon URL"
+      "markdownDescription": "**`{toc, toc-header, search, ...}`** Global UI visibility flags. Per-page `interface` frontmatter overrides these values.\n\nAvailable fields:\n- `toc` — show/hide the sidebar\n- `toc-header` — show/hide the TOC header section\n- `search` — show/hide the search input\n- `feedback` — show/hide like/dislike controls\n- `gallery` — enable/disable opening images in the gallery\n- `markdownActions` — show Markdown actions as separate buttons (`visible`), in a menu (`dropdown`, default), or hide them (`none`)\n- `favicon-src` — custom favicon URL"
     },
     "feedbackUrl": {
       "type": "string",
