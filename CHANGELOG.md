@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/diplodoc-platform/ajv/compare/v0.6.1...v0.7.0) (2026-09-17)
+
+
+### Features
+
+* validate Markdown actions mode ([2261d38](https://github.com/diplodoc-platform/ajv/commit/2261d388a6a84bbed6e9d11427f066ce7beedbe8))
+
 ## [0.6.1](https://github.com/diplodoc-platform/ajv/compare/v0.6.0...v0.6.1) (2026-09-16)
 
 
