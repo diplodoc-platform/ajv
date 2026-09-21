@@ -77,6 +77,10 @@ properties:
     type: string
     description: Base URL used for absolute links in statically generated documentation.
     markdownDescription: '**`string`** Publication root used by static HTML metadata and llms artifacts, and written to `<base href="...">`. A trailing slash is added automatically when missing.'
+  companions:
+    type: boolean
+    description: Emit prepared Markdown or YAML companions next to static HTML pages.
+    markdownDescription: '**`boolean`** Generate `.md` or `.yaml` companions with the md2md preprocessing pipeline during a static HTML build. Default: `false`.'
   varsPreset:
     type: string
     description: Name of the variables preset from presets.yaml. Merged with the "default" section.

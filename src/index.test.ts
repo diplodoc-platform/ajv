@@ -53,3 +53,17 @@ describe('yfm interface.markdownActions', () => {
         expect(validate({interface: {markdownActions: 'hidden'}})).toBe(false);
     });
 });
+
+describe('yfm companions', () => {
+    const ajv = new Ajv({strict: false, allowUnionTypes: true});
+    const validate = ajv.compile(schemas.yfmSchemaJson);
+
+    it('accepts a boolean value', () => {
+        expect(validate({companions: true})).toBe(true);
+        expect(validate({companions: false})).toBe(true);
+    });
+
+    it('rejects non-boolean values', () => {
+        expect(validate({companions: 'true'})).toBe(false);
+    });
+});
