@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/diplodoc-platform/ajv/compare/v0.7.0...v0.8.0) (2026-09-21)
+
+
+### Features
+
+* **schema:** support static companions ([d863bfd](https://github.com/diplodoc-platform/ajv/commit/d863bfd4b72ea9c8ddc3dee61c48ae556d0e040e))
+
 ## [0.7.0](https://github.com/diplodoc-platform/ajv/compare/v0.6.1...v0.7.0) (2026-09-17)
 
 
