@@ -812,7 +812,7 @@ properties:
     markdownDescription: |-
       **`DocsViewerConfig`** Configuration for the docs-viewer preview server.
 
-      Key fields: `project-name`, `lang`, `langs`, `favicon-src`, `logo-options`, `metrika`, `gtm`, `themes`.
+      Key fields: `project-name`, `lang`, `langs`, `favicon-src`, `logo-options`, `metrika`, `gtm`, `themes`, `versions`.
     defaultSnippets:
       - label: Docs viewer config
         body:
@@ -1848,6 +1848,29 @@ definitions:
         additionalProperties: false
         description: Crawler-manifest filter settings.
         markdownDescription: '**`{notifications, exclude}`** Crawler-manifest filter settings.'
+      versions:
+        type: object
+        properties:
+          enabled:
+            type: boolean
+            description: Enable named documentation versions for the project (Arcadia release branches).
+            markdownDescription: '**`boolean`** Enable named documentation versions for the project (Arcadia release branches).'
+          trunk:
+            type: string
+            description: Version name assigned to builds from trunk. Defaults to "main".
+            markdownDescription: '**`string`** Version name assigned to builds from trunk. Defaults to `main`.'
+          name:
+            type: string
+            description: Explicit version name for this branch; overrides the name derived from the release branch.
+            markdownDescription: '**`string`** Explicit version name for this branch; overrides the name derived from the release branch.'
+        additionalProperties: false
+        description: Named documentation versions settings.
+        markdownDescription: |-
+          **`{enabled, trunk, name}`** Named documentation versions settings.
+
+          - `enabled` **`boolean`** — enable named versions
+          - `trunk` **`string`** — version name for trunk builds (default `main`)
+          - `name` **`string`** — explicit version name for the current branch
     additionalProperties: true
     markdownDescription: '**`{project-name, no-index, lang, ...}`**'
   LogoOptions:

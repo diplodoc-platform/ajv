@@ -71,3 +71,22 @@ describe('yfm ai.mdCompanions', () => {
         expect(validate({companions: true})).toBe(false);
     });
 });
+
+describe('yfm docs-viewer.versions', () => {
+    const ajv = new Ajv({strict: false, allowUnionTypes: true});
+    const validate = ajv.compile(schemas.yfmSchemaJson);
+
+    it('accepts enabled, trunk and name', () => {
+        expect(
+            validate({'docs-viewer': {versions: {enabled: true, trunk: 'main', name: 'v1'}}}),
+        ).toBe(true);
+    });
+
+    it('rejects unknown fields inside versions', () => {
+        expect(validate({'docs-viewer': {versions: {enabled: true, latest: 'v1'}}})).toBe(false);
+    });
+
+    it('rejects wrong field types', () => {
+        expect(validate({'docs-viewer': {versions: {enabled: 'yes'}}})).toBe(false);
+    });
+});

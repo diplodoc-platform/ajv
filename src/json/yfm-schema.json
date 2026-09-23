@@ -851,7 +851,7 @@
     "docs-viewer": {
       "$ref": "#/definitions/DocsViewerConfig",
       "description": "Configuration for the docs-viewer preview server.",
-      "markdownDescription": "**`DocsViewerConfig`** Configuration for the docs-viewer preview server.\n\nKey fields: `project-name`, `lang`, `langs`, `favicon-src`, `logo-options`, `metrika`, `gtm`, `themes`.",
+      "markdownDescription": "**`DocsViewerConfig`** Configuration for the docs-viewer preview server.\n\nKey fields: `project-name`, `lang`, `langs`, `favicon-src`, `logo-options`, `metrika`, `gtm`, `themes`, `versions`.",
       "defaultSnippets": [
         {
           "label": "Docs viewer config",
@@ -2178,6 +2178,29 @@
           "additionalProperties": false,
           "description": "Crawler-manifest filter settings.",
           "markdownDescription": "**`{notifications, exclude}`** Crawler-manifest filter settings."
+        },
+        "versions": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Enable named documentation versions for the project (Arcadia release branches).",
+              "markdownDescription": "**`boolean`** Enable named documentation versions for the project (Arcadia release branches)."
+            },
+            "trunk": {
+              "type": "string",
+              "description": "Version name assigned to builds from trunk. Defaults to \"main\".",
+              "markdownDescription": "**`string`** Version name assigned to builds from trunk. Defaults to `main`."
+            },
+            "name": {
+              "type": "string",
+              "description": "Explicit version name for this branch; overrides the name derived from the release branch.",
+              "markdownDescription": "**`string`** Explicit version name for this branch; overrides the name derived from the release branch."
+            }
+          },
+          "additionalProperties": false,
+          "description": "Named documentation versions settings.",
+          "markdownDescription": "**`{enabled, trunk, name}`** Named documentation versions settings.\n\n- `enabled` **`boolean`** — enable named versions\n- `trunk` **`string`** — version name for trunk builds (default `main`)\n- `name` **`string`** — explicit version name for the current branch"
         }
       },
       "additionalProperties": true,
