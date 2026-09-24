@@ -89,4 +89,9 @@ describe('yfm docs-viewer.versions', () => {
     it('rejects wrong field types', () => {
         expect(validate({'docs-viewer': {versions: {enabled: 'yes'}}})).toBe(false);
     });
+
+    it('rejects empty trunk and name', () => {
+        expect(validate({'docs-viewer': {versions: {enabled: true, trunk: ''}}})).toBe(false);
+        expect(validate({'docs-viewer': {versions: {enabled: true, name: ''}}})).toBe(false);
+    });
 });
