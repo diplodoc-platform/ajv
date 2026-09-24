@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.9.0](https://github.com/diplodoc-platform/ajv/compare/v0.8.0...v0.9.0) (2026-09-24)
+
+
+### Features
+
+* **yfm:** describe docs-viewer.versions settings ([5827aae](https://github.com/diplodoc-platform/ajv/commit/5827aae01bc00bdf63e275214def3d299d1a8c4c))
+
+
+### Bug Fixes
+
+* **yfm:** restrict versions.name to release branches and forbid empty names ([de21881](https://github.com/diplodoc-platform/ajv/commit/de21881aa75b924fb410b1a13fc3ab6699c6e8de))
+
 ## [0.8.0](https://github.com/diplodoc-platform/ajv/compare/v0.7.0...v0.8.0) (2026-09-21)
 
 
