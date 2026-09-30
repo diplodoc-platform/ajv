@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/diplodoc-platform/ajv/compare/v0.9.0...v0.10.0) (2026-09-24)
+
+
+### Features
+
+* **toc:** add noIndex schema validation #DOCSTOOLS-4902 ([#64](https://github.com/diplodoc-platform/ajv/issues/64)) ([e5a6387](https://github.com/diplodoc-platform/ajv/commit/e5a63871f8682e7133c330d2405b5ad4a2bd4076))
+
 ## [0.9.0](https://github.com/diplodoc-platform/ajv/compare/v0.8.0...v0.9.0) (2026-09-24)
 
 
