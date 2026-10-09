@@ -570,6 +570,10 @@ properties:
             type: string
             description: Custom description metadata for LLMS indexing.
             markdownDescription: '**`string`** Custom description metadata for LLMS indexing.'
+          details:
+            type: string
+            description: Additional Markdown details before the llms.txt link sections.
+            markdownDescription: '**`string`** Additional Markdown paragraphs or lists after the summary and before the `llms.txt` link sections. Overridden per field by `toc.yaml`.'
           llmsFullMaxSize:
             $ref: '#/definitions/FileSize'
             description: 'Maximum size of llms-full.txt. Article ingestion stops when the limit is reached (YFM022 info). Default: 4M.'
@@ -580,7 +584,7 @@ properties:
             description: Override URL for llms.txt used in md companion AI hints.
             markdownDescription: '**`string (uri)`** Override URL for `llms.txt` used in md companion AI hints. When set, md companions link to this URL instead of the generated `llms.txt`.'
         additionalProperties: false
-        markdownDescription: '**`{enabled, description, llmsFullMaxSize, url}`**'
+        markdownDescription: '**`{enabled, description, details, llmsFullMaxSize, url}`**'
     description: Configure LLMS (Large Language Model Structure) file generation.
     markdownDescription: |-
       **`boolean | object`** Configure LLMS (Large Language Model Structure) files (`llms.txt` / `llms-full.txt`) generation.
