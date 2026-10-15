@@ -683,6 +683,13 @@
     "content": {
       "type": "object",
       "properties": {
+        "svgMaxEntityCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991,
+          "description": "Maximum XML entities parsed when inlining SVGs. Omit to use SVGO's default.",
+          "markdownDescription": "**`integer`** Optional SVG parser entity limit. Applies to HTML and Markdown with `mergeSvg`. Omit to retain SVGO's default; CLI flag `--svg-max-entity-count` overrides this value."
+        },
         "maxInlineSvgSize": {
           "$ref": "#/definitions/FileSize",
           "description": "Maximum size for inline SVG embedding.",
@@ -713,7 +720,7 @@
         }
       },
       "additionalProperties": false,
-      "markdownDescription": "**`{maxInlineSvgSize, maxHtmlSize, maxAssetSize, multilineTermDefinitions}`** Content size limits and processing options.\n\n- `maxInlineSvgSize` **`string | integer`** — max SVG size for inline embedding\n- `maxHtmlSize` **`string | integer`** — max rendered HTML page size\n- `maxAssetSize` **`string | integer`** — max asset file size (`0` = no limit)\n- `multilineTermDefinitions` **`boolean`** — allow multi-line term definitions",
+      "markdownDescription": "**`{maxInlineSvgSize, svgMaxEntityCount, maxHtmlSize, maxAssetSize, multilineTermDefinitions}`** Content size limits and processing options.\n\n- `maxInlineSvgSize` **`string | integer`** — max SVG size for inline embedding\n- `svgMaxEntityCount` **`integer`** — optional SVG entity limit; SVGO owns the default\n- `maxHtmlSize` **`string | integer`** — max rendered HTML page size\n- `maxAssetSize` **`string | integer`** — max asset file size (`0` = no limit)\n- `multilineTermDefinitions` **`boolean`** — allow multi-line term definitions",
       "defaultSnippets": [
         {
           "label": "Set content size limits",
