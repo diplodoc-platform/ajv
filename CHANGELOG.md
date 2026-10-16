@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/diplodoc-platform/ajv/compare/v0.10.0...v0.11.0) (2026-10-16)
+
+
+### Features
+
+* **config:** add optional SVG entity limit ([949c775](https://github.com/diplodoc-platform/ajv/commit/949c775e17bed4847fbf0da15d6f5c7a35a89627))
+
 ## [0.10.0](https://github.com/diplodoc-platform/ajv/compare/v0.9.0...v0.10.0) (2026-09-24)
 
 
