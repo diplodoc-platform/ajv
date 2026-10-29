@@ -612,6 +612,11 @@
               "description": "Custom description metadata for LLMS indexing.",
               "markdownDescription": "**`string`** Custom description metadata for LLMS indexing."
             },
+            "details": {
+              "type": "string",
+              "description": "Additional Markdown details before the llms.txt link sections.",
+              "markdownDescription": "**`string`** Additional Markdown paragraphs or lists after the summary and before the `llms.txt` link sections. Overridden per field by `toc.yaml`."
+            },
             "llmsFullMaxSize": {
               "$ref": "#/definitions/FileSize",
               "description": "Maximum size of llms-full.txt. Article ingestion stops when the limit is reached (YFM022 info). Default: 4M.",
@@ -625,7 +630,7 @@
             }
           },
           "additionalProperties": false,
-          "markdownDescription": "**`{enabled, description, llmsFullMaxSize, url}`**"
+          "markdownDescription": "**`{enabled, description, details, llmsFullMaxSize, url}`**"
         }
       ],
       "description": "Configure LLMS (Large Language Model Structure) file generation.",
