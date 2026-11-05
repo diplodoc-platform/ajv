@@ -548,6 +548,12 @@
               "description": "Exclude hidden TOC items from PDF output.",
               "markdownDescription": "**`boolean`** Exclude hidden TOC items from PDF output."
             },
+            "showAbsoluteUrls": {
+              "type": "boolean",
+              "default": false,
+              "description": "Show absolute HTTP(S) URLs next to link text in PDF output. Disabled by default.",
+              "markdownDescription": "**`boolean`** Show absolute HTTP(S) URLs next to link text in PDF output. Disabled by default."
+            },
             "icon": {
               "type": "string",
               "description": "Custom icon for the PDF download button. Accepted values: inline SVG markup, absolute URL, or a project-relative path starting with _assets/. For md output, paths under _assets/ are copied to the output directory.",
