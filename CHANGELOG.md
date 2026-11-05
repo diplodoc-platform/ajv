@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.12.0](https://github.com/diplodoc-platform/ajv/compare/v0.11.0...v0.12.0) (2026-11-05)
+
+
+### Features
+
+* added showAbsoluteUrls option ([#88](https://github.com/diplodoc-platform/ajv/issues/88)) ([c752095](https://github.com/diplodoc-platform/ajv/commit/c7520959808dc8280e934f59dd6751a0be6d33d8))
+* **schema:** describe article modification dates DOCSTOOLS-6995 ([#87](https://github.com/diplodoc-platform/ajv/issues/87)) ([3fc2bd6](https://github.com/diplodoc-platform/ajv/commit/3fc2bd682df32392c6e0b0f348715d43e543ba8d))
+
 ## [0.11.0](https://github.com/diplodoc-platform/ajv/compare/v0.10.0...v0.11.0) (2026-10-16)
 
 
