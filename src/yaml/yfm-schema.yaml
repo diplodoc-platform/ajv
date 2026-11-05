@@ -484,12 +484,16 @@ properties:
       **`boolean | SearchConfig`** Documentation search feature.
 
       - `false` — disable search
-      - Object — configure provider (local or algolia)
+      - Object - configure provider (local, algolia, or external)
     defaultSnippets:
       - label: Local search
         body:
           enabled: true
           provider: local
+      - label: External HTTP search
+        body:
+          provider: external
+          endpoint: ${1:/api/docs/search}
       - label: Algolia search
         body:
           enabled: true
@@ -1195,11 +1199,28 @@ definitions:
         enum:
           - local
           - algolia
-        description: Search provider identifier (local or algolia).
-        markdownDescription: "**`'local' | 'algolia'`** Search provider."
+          - external
+        description: Search provider identifier (local, algolia, or external).
+        markdownDescription: "**`'local' | 'algolia' | 'external'`** Search provider."
         markdownEnumDescriptions:
           - '**local** — full-text search index generated at build time. No external service required.'
           - '**algolia** — Algolia DocSearch or custom index. Requires `appId`, `apiKey`, `indexName`.'
+          - '**external** - HTTP/JSON search endpoint managed outside the documentation build.'
+      endpoint:
+        type: string
+        minLength: 1
+        pattern: '^(?:https?://[^/@\s#?]+(?:[/?][^\s#\\]*)?|/(?!/)[^\s#\\]*|(?!(?:[A-Za-z][A-Za-z0-9+.-]*):)[^/\s#\\][^\s#\\]*)$'
+        description: HTTP(S), origin-relative, or documentation-relative endpoint for external search. Must not contain credentials or a fragment.
+        markdownDescription: '**`string`** External search endpoint. Receives GET requests from the browser.'
+      options:
+        type: object
+        additionalProperties:
+          type:
+            - string
+            - number
+            - boolean
+        description: Public extra query parameters sent to the external search endpoint. Do not put secrets here.
+        markdownDescription: '**`object`** Public extra query parameters for external search. Values are strings, numbers, or booleans.'
       appId:
         type: string
         description: Algolia Application ID (provider=algolia).
@@ -1264,16 +1285,33 @@ definitions:
         description: Algolia query settings (provider=algolia). Merged into each search request. Supports hitsPerPage, attributesToRetrieve, etc.
         additionalProperties: true
         markdownDescription: '**`object`** Algolia query settings merged into each search request. Supports `hitsPerPage`, `attributesToRetrieve`, etc.'
+    allOf:
+      - if:
+          properties:
+            provider:
+              const: external
+          required:
+            - provider
+          not:
+            properties:
+              enabled:
+                const: false
+            required:
+              - enabled
+        then:
+          required:
+            - endpoint
     additionalProperties: true
     markdownDescription: |-
       **`SearchConfig`** Documentation search configuration.
 
       - `enabled` **`boolean`** — enable/disable search
-      - `provider` **`'local' | 'algolia'`** — search backend
+      - `provider` **`'local' | 'algolia' | 'external'`** — search backend
       - `tolerance` **`0 | 1 | 2`** — wildcard tolerance (local only)
       - `confidence` **`'phrased' | 'sparsed'`** — scoring strategy (local only)
+      - `endpoint` / `options` - HTTP endpoint and public query parameters (external only)
       - `appId` / `apiKey` / `indexName` — Algolia credentials
-    description: 'Search config. Fields: enabled, provider (local|algolia), tolerance (0-2), confidence (phrased|sparsed), and Algolia-specific fields.'
+    description: 'Search config. Fields: enabled, provider (local|algolia|external), tolerance (0-2), confidence (phrased|sparsed), external HTTP endpoint/options, and Algolia-specific fields.'
   AiChatStIssuesSlice:
     type: object
     minProperties: 1
