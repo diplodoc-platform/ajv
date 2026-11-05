@@ -28,6 +28,14 @@
     "restrictedAccess": {
       "$ref": "#/definitions/RestrictedAccessMap",
       "description": "Sparse map of lang-relative page paths (without extension) to merged `restricted-access` rules from md2md frontmatter. Always present in current CLI builds (may be `{}` when no page has restrictions). Absent only in legacy manifests produced before this field existed.\n"
+    },
+    "pageModifiedTimes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "description": "Sparse map of source page paths without their final extension to UTC modification timestamps from finalized VCS metadata. Present only when mtimes is enabled. An empty map means no article dates are known; consumers must not substitute the project revision timestamp for missing entries.\n"
     }
   },
   "additionalProperties": false,

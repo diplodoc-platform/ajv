@@ -90,6 +90,34 @@ describe('build-manifest-schema', () => {
         expect(validate.errors?.some((error) => error.keyword === 'required')).toBe(true);
     });
 
+    it.each([{}, {index: '2026-10-20T12:00:00.000Z', 'ru/v1.0/guide': '2026-10-21T00:00:00.000Z'}])(
+        'accepts optional per-article dates: %j',
+        (pageModifiedTimes) => {
+            expect(
+                validate({
+                    fileTrie: minimalFileTrie,
+                    yfmConfig: {},
+                    redirects: {},
+                    pageModifiedTimes,
+                }),
+            ).toBe(true);
+        },
+    );
+
+    it.each([{index: 'invalid'}, {index: 123}, {index: '2026-02-30T12:00:00Z'}, null])(
+        'rejects invalid article dates: %j',
+        (pageModifiedTimes) => {
+            expect(
+                validate({
+                    fileTrie: minimalFileTrie,
+                    yfmConfig: {},
+                    redirects: {},
+                    pageModifiedTimes,
+                }),
+            ).toBe(false);
+        },
+    );
+
     it('rejects invalid restrictedAccess values', () => {
         expect(
             validate({
