@@ -4,6 +4,12 @@
   "title": "Diplodoc (toc.yaml)",
   "type": "object",
   "properties": {
+    "visibility": {
+      "type": "string",
+      "enum": ["agent"],
+      "description": "Agent-only page or section. Inherited by all descendants; cannot be overridden.",
+      "markdownDescription": "**`agent`** Restrict this page and all descendants to the agent audience. Omit for shared content. Repeated references to the same page must agree on visibility."
+    },
     "title": {
       "type": "string",
       "translate": "md",
@@ -262,6 +268,12 @@
     "TocItem": {
       "type": "object",
       "properties": {
+        "visibility": {
+          "type": "string",
+          "enum": ["agent"],
+          "description": "Agent-only page or section. Inherited by all descendants; cannot be overridden.",
+          "markdownDescription": "**`agent`** Restrict this page and all descendants to the agent audience. Omit for shared content. Repeated references to the same page must agree on visibility."
+        },
         "name": {
           "type": "string",
           "translate": "md",
