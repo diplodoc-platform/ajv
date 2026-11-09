@@ -96,6 +96,32 @@ describe('yfm docs-viewer.versions', () => {
     });
 });
 
+describe('toc page visibility', () => {
+    const ajv = new Ajv({strict: false, allowUnionTypes: true});
+    addFormats(ajv);
+    const validate = ajv.compile(schemas.tocSchemaJson);
+
+    it('accepts agent at root, on nested items, and on an include', () => {
+        expect(
+            validate({
+                visibility: 'agent',
+                items: [
+                    {name: 'Agent', visibility: 'agent', href: 'agent.md'},
+                    {visibility: 'agent', include: {path: 'agent/toc.yaml', mode: 'link'}},
+                ],
+            }),
+        ).toBe(true);
+    });
+
+    it.each(['agents', 'human', true, null, [], {}])(
+        'rejects invalid visibility: %j',
+        (visibility) => {
+            expect(validate({visibility})).toBe(false);
+            expect(validate({items: [{name: 'Invalid', href: 'page.md', visibility}]})).toBe(false);
+        },
+    );
+});
+
 describe('toc noIndex', () => {
     const ajv = new Ajv({strict: false, allowUnionTypes: true});
     addFormats(ajv);

@@ -3,6 +3,11 @@ $id: https://diplodoc.com/schemas/toc/draft-01/schema#
 title: Diplodoc (toc.yaml)
 type: object
 properties:
+  visibility: &pageVisibility
+    type: string
+    enum: [agent]
+    description: Agent-only page or section. Inherited by all descendants; cannot be overridden.
+    markdownDescription: '**`agent`** Restrict this page and all descendants to the agent audience. Omit for shared content. Repeated references to the same page must agree on visibility.'
   title:
     type: string
     translate: md
@@ -253,6 +258,7 @@ definitions:
   TocItem:
     type: object
     properties:
+      visibility: *pageVisibility
       name:
         type: string
         translate: md
