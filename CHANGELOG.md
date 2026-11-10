@@ -5,7 +5,7 @@
 
 ### Features
 
-* support external HTTP search configuration (DOCSTOOLS-7029) ([#90](https://github.com/diplodoc-platform/ajv/issues/90)) ([35b195a](https://github.com/diplodoc-platform/ajv/commit/35b195a438f0012e6df38f9bc3968b1486f8f092))
+* support external HTTP search configuration ([#90](https://github.com/diplodoc-platform/ajv/issues/90)) ([35b195a](https://github.com/diplodoc-platform/ajv/commit/35b195a438f0012e6df38f9bc3968b1486f8f092))
 
 ## [0.12.0](https://github.com/diplodoc-platform/ajv/compare/v0.11.0...v0.12.0) (2026-11-05)
 
