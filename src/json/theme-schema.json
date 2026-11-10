@@ -14,6 +14,16 @@
       "markdownDescription": "**`string (CSS color)`** Background color for the selected / active state of navigation items and interactive elements.",
       "description": "Background color for selected/active navigation items."
     },
+    "navigation-active-underline": {
+      "type": "string",
+      "markdownDescription": "**`string (CSS color)`** Underline color of the active item in the top navigation. Independent of shared Gravity UI colors.",
+      "description": "Underline color of the active item in the top navigation."
+    },
+    "navigation-dropdown-selected-background": {
+      "type": "string",
+      "markdownDescription": "**`string (CSS color)`** Background color of the selected item in the top navigation dropdown menu. Independent of shared Gravity UI colors.",
+      "description": "Background color of the selected item in the top navigation dropdown menu."
+    },
     "base-background": {
       "type": "string",
       "markdownDescription": "**`string (CSS color)`** Main page background color (applied to `<body>`).",
@@ -204,6 +214,16 @@
           "type": "string",
           "markdownDescription": "**`string (CSS color)`** Background of selected/active elements.",
           "description": "Background for selected/active elements."
+        },
+        "navigation-active-underline": {
+          "type": "string",
+          "markdownDescription": "**`string (CSS color)`** Underline color of the active item in the top navigation. Independent of shared Gravity UI colors.",
+          "description": "Underline color of the active item in the top navigation."
+        },
+        "navigation-dropdown-selected-background": {
+          "type": "string",
+          "markdownDescription": "**`string (CSS color)`** Background color of the selected item in the top navigation dropdown menu. Independent of shared Gravity UI colors.",
+          "description": "Background color of the selected item in the top navigation dropdown menu."
         },
         "base-background": {
           "type": "string",
