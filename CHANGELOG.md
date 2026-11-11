@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.14.0](https://github.com/diplodoc-platform/ajv/compare/v0.13.0...v0.14.0) (2026-11-11)
+
+
+### Features
+
+* **theme:** add navigation color schema properties ([1d393dc](https://github.com/diplodoc-platform/ajv/commit/1d393dca8eb29ffdf81e418f58e9e151d2c6c263))
+
 ## [0.13.0](https://github.com/diplodoc-platform/ajv/compare/v0.12.0...v0.13.0) (2026-11-10)
 
 
