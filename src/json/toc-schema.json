@@ -10,6 +10,39 @@
       "markdownDescription": "**`string`** Title of the documentation section. Shown in the browser tab and the navigation sidebar header.",
       "description": "Title of the documentation section. Shown in the browser tab and sidebar header."
     },
+    "llms": {
+      "type": "object",
+      "description": "LLMS metadata overrides for this TOC. Omitted fields fall back to .yfm.",
+      "markdownDescription": "**`{description, details, url}`** Override LLMS metadata for this TOC. Each omitted field falls back to `.yfm`; an empty string clears its default. Included TOCs do not override the containing TOC metadata.",
+      "properties": {
+        "description": {
+          "type": "string",
+          "translate": "md",
+          "description": "Short summary in the llms.txt header for this TOC.",
+          "markdownDescription": "**`string`** Short summary in the `llms.txt` blockquote for this TOC."
+        },
+        "details": {
+          "type": "string",
+          "translate": "md",
+          "description": "Additional Markdown details before the llms.txt link sections.",
+          "markdownDescription": "**`string`** Additional Markdown paragraphs or lists after the summary and before the `llms.txt` link sections."
+        },
+        "url": {
+          "type": "string",
+          "anyOf": [
+            {
+              "format": "uri"
+            },
+            {
+              "const": ""
+            }
+          ],
+          "description": "Override the llms.txt describedby URL for pages in this TOC.",
+          "markdownDescription": "**`string`** Override the `llms.txt` describedby URL for pages in this TOC. An empty string uses the generated URL when LLMS generation is enabled."
+        }
+      },
+      "additionalProperties": false
+    },
     "href": {
       "type": "string",
       "format": "url",
