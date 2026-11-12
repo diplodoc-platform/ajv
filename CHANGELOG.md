@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.15.0](https://github.com/diplodoc-platform/ajv/compare/v0.14.0...v0.15.0) (2026-11-12)
+
+
+### Features
+
+* **llms:** add per-TOC metadata schemas DOCSTOOLS-6764 ([#78](https://github.com/diplodoc-platform/ajv/issues/78)) ([1b218dd](https://github.com/diplodoc-platform/ajv/commit/1b218dd789b07895f3d1f660ed6cedfc9fa0ea89))
+
 ## [0.14.0](https://github.com/diplodoc-platform/ajv/compare/v0.13.0...v0.14.0) (2026-11-11)
 
 
