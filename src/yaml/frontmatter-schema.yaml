@@ -4,6 +4,11 @@ title: Diplodoc (frontmatter)
 description: YAML frontmatter block at the top of .md files (between --- delimiters). Defines page metadata, SEO fields, resources, and access rules.
 type: object
 properties:
+  pageAudience:
+    type: string
+    enum: [agent]
+    readOnly: true
+    description: Generated agent-only page metadata. Configure visibility in toc.yaml instead.
   title:
     type: string
     translate: md
