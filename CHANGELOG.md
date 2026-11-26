@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.0](https://github.com/diplodoc-platform/ajv/compare/v0.15.0...v0.16.0) (2026-11-26)
+
+
+### Features
+
+* **toc:** describe agent-only page visibility DOCSTOOLS-6733 ([7750a6f](https://github.com/diplodoc-platform/ajv/commit/7750a6fb493f61bfb51be0dcd5f44dab10d416ad))
+
 ## [0.15.0](https://github.com/diplodoc-platform/ajv/compare/v0.14.0...v0.15.0) (2026-11-12)
 
 
