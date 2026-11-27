@@ -573,9 +573,14 @@ properties:
     doNotSuggest: true
   updatedAt:
     type: string
-    description: Last modification timestamp from VCS (system-generated).
-    markdownDescription: '**`string`** *(system-generated)* ISO 8601 timestamp of the last VCS commit touching this file.'
-    doNotSuggest: true
+    description: Manual article modification date in YYYY-MM-DD format. Takes precedence over the VCS timestamp.
+    markdownDescription: |-
+      **`string`** Manual article modification date. Use a quoted date such as `'2026-11-12'`.
+      Short dates display as calendar days in Moscow, regardless of the reader's time zone.
+      Existing ISO 8601 timestamps with a time zone are also accepted.
+    defaultSnippets:
+      - label: Set the article modification date
+        body: "'${1:2026-11-12}'"
   __system:
     type: object
     description: System variables from presets (only when addSystemMeta is enabled).
